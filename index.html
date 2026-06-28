@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Toys Kids - Your premier destination for quality toys, electronic toys, and educational games">
+    <meta name="keywords" content="toys, electronic toys, children, games, educational toys">
+    <title>Toys Kids - Bringing Joy to Children</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Reset and Base Styles */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #E63946;
+            --primary-blue: #1D3557;
+            --primary-yellow: #FFB703;
+            --white: #FFFFFF;
+            --gray-light: #F1FAEE;
+            --gray-dark: #457B9D;
+            --text-dark: #1a1a1a;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--white);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-top {
+            background: linear-gradient(90deg, var(--primary-red) 0%, var(--primary-blue) 50%, var(--primary-yellow) 100%);
+            height: 5px;
+        }
+
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-blue);
+        }
+
+        .logo-text {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-blue), var(--primary-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--primary-blue);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary-red);
+        }
+
+        /* Language Selector */
+        .language-selector {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary-blue);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .language-selector:hover {
+            background: var(--gray-light);
+        }
+
+        .language-selector i {
+            color: var(--primary-blue);
+        }
+
+        .language-selector span {
+            font-weight: 500;
+            color: var(--primary-blue);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-blue);
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('https://images.unsplash.com/photo-1562059390-a761a084768e?w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary-yellow);
+            color: var(--primary-blue);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            background: #ffc107;
+        }
+
+        .btn-primary {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #d62839;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 3rem;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-yellow));
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--gray-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-yellow);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Products Gallery */
+        .products {
+            background: var(--gray-light);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(29, 53, 87, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .view-details {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: 2px solid var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .view-details:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .share-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--white);
+        }
+
+        .share-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .share-btn.facebook { background: #1877F2; }
+        .share-btn.twitter { background: #1DA1F2; }
+        .share-btn.whatsapp { background: #25D366; }
+
+        .whatsapp-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #25D366;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .whatsapp-link:hover {
+            color: #128C7E;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 15px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-red);
+            color: var(--white);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: #d62839;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-slider {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .modal-slide.active {
+            opacity: 1;
+        }
+
+        .modal-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            transform: translateY(-50%);
+        }
+
+        .slider-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        .slider-btn:hover {
+            background: var(--white);
+            transform: scale(1.1);
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gray-dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background: var(--primary-blue);
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .modal-info h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .modal-info p {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Reviews Section */
+        .reviews-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-slide {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .review-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .review-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--primary-yellow);
+        }
+
+        .review-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+        }
+
+        .review-company {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+        }
+
+        .review-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .review-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--gray-dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .review-dot.active {
+            background: var(--primary-blue);
+            transform: scale(1.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--gray-light);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item div h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item div p, .contact-item div a {
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .contact-item div a:hover {
+            color: var(--primary-red);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+
+        .form-group label .required {
+            color: var(--primary-red);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .form-group input.error,
+        .form-group select.error,
+        .form-group textarea.error {
+            border-color: var(--primary-red);
+        }
+
+        .error-message {
+            color: var(--primary-red);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-yellow);
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-yellow);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            padding-left: 0;
+        }
+
+        .social-links .instagram { background: #E4405F; }
+        .social-links .facebook { background: #1877F2; }
+        .social-links .linkedin { background: #0A66C2; }
+        .social-links .youtube { background: #FF0000; }
+        .social-links .whatsapp { background: #25D366; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-main {
+                padding: 1rem 3%;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                transition: var(--transition);
+                gap: 1.5rem;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+
+            .hero {
+                margin-top: 70px;
+                min-height: 70vh;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 3rem 3%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-slider {
+                height: 250px;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.25rem;
+            }
+
+            .logo img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .product-actions {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        /* Loading State */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* Success Message */
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Print Styles */
+        @media print {
+            header, footer, .btn {
+                display: none;
+            }
+            
+            .hero {
+                margin-top: 0;
+            }
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        *:focus-visible {
+            outline: 3px solid var(--primary-yellow);
+            outline-offset: 2px;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top"></div>
+        <div class="header-main">
+            <div class="logo">
+                <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=200&q=80" alt="Toys Kids Logo">
+                <span class="logo-text">Toys Kids</span>
+            </div>
+            
+            <nav>
+                <ul id="mainMenu">
+                    <li><a href="#home" data-en="Home" data-es="Inicio">Home</a></li>
+                    <li><a href="#about" data-en="About Us" data-es="Nosotros">About Us</a></li>
+                    <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+                    <li><a href="#products" data-en="Products" data-es="Productos">Products</a></li>
+                    <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+                    <li>
+                        <div class="language-selector" id="languageToggle" role="button" tabindex="0" aria-label="Toggle language">
+                            <i class="fas fa-globe"></i>
+                            <span id="currentLang">EN</span>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 data-en="Where Imagination Comes to Life" data-es="Donde la Imaginación Cobra Vida">Where Imagination Comes to Life</h1>
+            <p data-en="Discover the best toys for your children. Quality, fun, and educational toys that create lasting memories." 
+               data-es="Descubre los mejores juguetes para tus hijos. Juguetes de calidad, divertidos y educativos que crean recuerdos duraderos.">
+               Discover the best toys for your children. Quality, fun, and educational toys that create lasting memories.
+            </p>
+            <a href="#products" class="btn" data-en="Explore Toys" data-es="Explorar Juguetes">Explore Toys</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title" data-en="About Us" data-es="Nosotros">About Us</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=800&q=80" alt="Electronic Toys">
+            </div>
+            <div class="about-text">
+                <h3 data-en="Bringing Joy Since 2010" data-es="Llevando Alegría Desde 2010">Bringing Joy Since 2010</h3>
+                <p data-en="At Toys Kids, we are passionate about providing the highest quality toys that inspire creativity, learning, and fun. We specialize in electronic toys and educational games that help children develop essential skills while having a blast." 
+                   data-es="En Toys Kids, somos apasionados por proporcionar juguetes de la más alta calidad que inspiran creatividad, aprendizaje y diversión. Nos especializamos en juguetes electrónicos y juegos educativos que ayudan a los niños a desarrollar habilidades esenciales mientras se divierten.">
+                   At Toys Kids, we are passionate about providing the highest quality toys that inspire creativity, learning, and fun. We specialize in electronic toys and educational games that help children develop essential skills while having a blast.
+                </p>
+                <p data-en="Our commitment to safety, quality, and customer satisfaction has made us a trusted name in the toy industry. We carefully select each product to ensure it meets our high standards and provides hours of entertainment." 
+                   data-es="Nuestro compromiso con la seguridad, la calidad y la satisfacción del cliente nos ha convertido en un nombre de confianza en la industria de los juguetes. Seleccionamos cuidadosamente cada producto para asegurar que cumpla con nuestros altos estándares y proporcione horas de entretenimiento.">
+                   Our commitment to safety, quality, and customer satisfaction has made us a trusted name in the toy industry. We carefully select each product to ensure it meets our high standards and provides hours of entertainment.
+                </p>
+                <a href="#contact" class="btn btn-primary" data-en="Get in Touch" data-es="Contáctanos">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title" data-en="Our Services" data-es="Nuestros Servicios">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3 data-en="Toy Sales" data-es="Venta de Juguetes">Toy Sales</h3>
+                <p data-en="Wide variety of toys for all ages. From electronic toys to educational games, we have everything your child needs." 
+                   data-es="Amplia variedad de juguetes para todas las edades. Desde juguetes electrónicos hasta juegos educativos, tenemos todo lo que tu hijo necesita.">
+                   Wide variety of toys for all ages. From electronic toys to educational games, we have everything your child needs.
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3 data-en="Toy Events" data-es="Eventos de Juguetes">Toy Events</h3>
+                <p data-en="We organize fun toy events, birthday parties, and educational workshops for children of all ages." 
+                   data-es="Organizamos divertidos eventos de juguetes, fiestas de cumpleaños y talleres educativos para niños de todas las edades.">
+                   We organize fun toy events, birthday parties, and educational workshops for children of all ages.
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <h3 data-en="Special Promotions" data-es="Promociones Especiales">Special Promotions</h3>
+                <p data-en="Exclusive deals and promotions throughout the year. Subscribe to our newsletter to stay updated!" 
+                   data-es="Ofertas y promociones exclusivas durante todo el año. ¡Suscríbete a nuestro boletín para mantenerte actualizado!">
+                   Exclusive deals and promotions throughout the year. Subscribe to our newsletter to stay updated!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2 class="section-title" data-en="Our Products" data-es="Nuestros Productos">Our Products</h2>
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-slider">
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="prevSlide" aria-label="Previous image">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="slider-btn" id="nextSlide" aria-label="Next image">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div id="sliderImages"></div>
+                    <div class="slider-dots" id="sliderDots"></div>
+                </div>
+                <div class="modal-info">
+                    <h3 id="modalTitle"></h3>
+                    <p id="modalDescription"></p>
+                    <a href="#" class="btn btn-primary" id="modalWhatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> <span data-en="Inquire via WhatsApp" data-es="Consultar por WhatsApp">Inquire via WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <h2 class="section-title" data-en="What Our Customers Say" data-es="Lo Que Dicen Nuestros Clientes">What Our Customers Say</h2>
+        <div class="reviews-slider">
+            <div class="review-slide active">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Customer" class="review-avatar">
+                <p class="review-text" data-en="Amazing quality toys! My children absolutely love their electronic robot. The customer service was exceptional and delivery was fast." 
+                   data-es="¡Juguetes de calidad increíble! Mis hijos absolutamente aman su robot electrónico. El servicio al cliente fue excepcional y la entrega fue rápida.">
+                   Amazing quality toys! My children absolutely love their electronic robot. The customer service was exceptional and delivery was fast.
+                </p>
+                <div class="review-author">Maria Rodriguez</div>
+                <div class="review-company">Happy Parent</div>
+            </div>
+            
+            <div class="review-slide">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" alt="Customer" class="review-avatar">
+                <p class="review-text" data-en="Best toy store in San Cristobal! Great prices and the staff really knows their products. Highly recommended!" 
+                   data-es="¡La mejor tienda de juguetes en San Cristobal! Grandes precios y el personal realmente conoce sus productos. ¡Altamente recomendado!">
+                   Best toy store in San Cristobal! Great prices and the staff really knows their products. Highly recommended!
+                </p>
+                <div class="review-author">Carlos Mendez</div>
+                <div class="review-company">Loyal Customer</div>
+            </div>
+            
+            <div class="review-slide">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Customer" class="review-avatar">
+                <p class="review-text" data-en="The educational toys here have really helped my son's development. Great selection and very affordable prices." 
+                   data-es="Los juguetes educativos aquí realmente han ayudado el desarrollo de mi hijo. Gran selección y precios muy accesibles.">
+                   The educational toys here have really helped my son's development. Great selection and very affordable prices.
+                </p>
+                <div class="review-author">Ana Martinez</div>
+                <div class="review-company">Teacher & Parent</div>
+            </div>
+            
+            <div class="review-slide">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Customer" class="review-avatar">
+                <p class="review-text" data-en="Excellent service for our school event. They provided amazing toys for our children's day celebration. Professional and reliable!" 
+                   data-es="Excelente servicio para nuestro evento escolar. Proporcionaron juguetes increíbles para nuestra celebración del día del niño. ¡Profesionales y confiables!">
+                   Excellent service for our school event. They provided amazing toys for our children's day celebration. Professional and reliable!
+                </p>
+                <div class="review-author">Roberto Silva</div>
+                <div class="review-company">School Director</div>
+            </div>
+            
+            <div class="review-slide">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" alt="Customer" class="review-avatar">
+                <p class="review-text" data-en="I've been buying from Toys Kids for 3 years now. Consistent quality and my kids always get excited when we visit the store!" 
+                   data-es="He estado comprando en Toys Kids por 3 años ahora. Calidad consistente y ¡mis hijos siempre se emocionan cuando visitamos la tienda!">
+                   I've been buying from Toys Kids for 3 years now. Consistent quality and my kids always get excited when we visit the store!
+                </p>
+                <div class="review-author">Luis Hernandez</div>
+                <div class="review-company">Regular Customer</div>
+            </div>
+            
+            <div class="review-dots">
+                <span class="review-dot active" data-index="0"></span>
+                <span class="review-dot" data-index="1"></span>
+                <span class="review-dot" data-index="2"></span>
+                <span class="review-dot" data-index="3"></span>
+                <span class="review-dot" data-index="4"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title" data-en="Contact Us" data-es="Contáctanos">Contact Us</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3 data-en="Get in Touch" data-es="Ponte en Contacto">Get in Touch</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4 data-en="Address" data-es="Dirección">Address</h4>
+                        <p>San Cristobal, Edo. Táchira, Venezuela</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4 data-en="Email" data-es="Correo Electrónico">Email</h4>
+                        <a href="mailto:info@toysplay.com">info@toysplay.com</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h4 data-en="WhatsApp" data-es="WhatsApp">WhatsApp</h4>
+                        <a href="https://wa.me/1234567890" target="_blank">+1 234 567 890</a>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div>
+                        <h4>Instagram</h4>
+                        <a href="https://instagram.com/toyskids" target="_blank">@toyskids</a>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com/toyskids" target="_blank" class="instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com/toyskids" target="_blank" class="facebook" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/toyskids" target="_blank" class="linkedin" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://youtube.com/toyskids" target="_blank" class="youtube" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3 data-en="Send us a Message" data-es="Envíanos un Mensaje">Send us a Message</h3>
+                
+                <div class="alert alert-success" id="formSuccess">
+                    <i class="fas fa-check-circle"></i> <span data-en="Message sent successfully! We'll get back to you soon." data-es="¡Mensaje enviado exitosamente! Te responderemos pronto.">Message sent successfully! We'll get back to you soon.</span>
+                </div>
+                
+                <div class="alert alert-error" id="formError">
+                    <i class="fas fa-exclamation-circle"></i> <span data-en="Error sending message. Please try again." data-es="Error al enviar el mensaje. Por favor intenta de nuevo.">Error sending message. Please try again.</span>
+                </div>
+                
+                <form id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">
+                            <span data-en="Full Name" data-es="Nombre Completo">Full Name</span>
+                            <span class="required">*</span>
+                        </label>
+                        <input type="text" id="name" name="name" required 
+                               data-en-placeholder="Enter your full name" 
+                               data-es-placeholder="Ingresa tu nombre completo"
+                               placeholder="Enter your full name">
+                        <span class="error-message" data-en="Please enter your name" data-es="Por favor ingresa tu nombre">Please enter your name</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">
+                            <span data-en="Email" data-es="Correo Electrónico">Email</span>
+                            <span class="required">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" required 
+                               data-en-placeholder="Enter your email" 
+                               data-es-placeholder="Ingresa tu correo"
+                               placeholder="Enter your email">
+                        <span class="error-message" data-en="Please enter a valid email" data-es="Por favor ingresa un correo válido">Please enter a valid email</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">
+                            <span data-en="Phone" data-es="Teléfono">Phone</span>
+                            <span class="required">*</span>
+                        </label>
+                        <input type="tel" id="phone" name="phone" required 
+                               data-en-placeholder="Enter your phone number" 
+                               data-es-placeholder="Ingresa tu teléfono"
+                               placeholder="Enter your phone number">
+                        <span class="error-message" data-en="Please enter your phone number" data-es="Por favor ingresa tu teléfono">Please enter your phone number</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="requestType">
+                            <span data-en="Request Type" data-es="Tipo de Solicitud">Request Type</span>
+                            <span class="required">*</span>
+                        </label>
+                        <select id="requestType" name="requestType" required>
+                            <option value="" data-en="Select an option" data-es="Selecciona una opción">Select an option</option>
+                            <option value="question" data-en="Question" data-es="Pregunta">Question</option>
+                            <option value="toys" data-en="Toys" data-es="Juguetes">Toys</option>
+                            <option value="promotions" data-en="Promotions" data-es="Promociones">Promotions</option>
+                            <option value="manufacturing" data-en="Manufacturing" data-es="Fabricación">Manufacturing</option>
+                            <option value="quotes" data-en="Quotes" data-es="Cotizaciones">Quotes</option>
+                            <option value="others" data-en="Others" data-es="Otros">Others</option>
+                        </select>
+                        <span class="error-message" data-en="Please select a request type" data-es="Por favor selecciona un tipo de solicitud">Please select a request type</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="comment">
+                            <span data-en="Comment" data-es="Comentario">Comment</span>
+                            <span class="required">*</span>
+                        </label>
+                        <textarea id="comment" name="comment" required 
+                                  data-en-placeholder="Enter your message" 
+                                  data-es-placeholder="Ingresa tu mensaje"
+                                  placeholder="Enter your message"></textarea>
+                        <span class="error-message" data-en="Please enter your comment" data-es="Por favor ingresa tu comentario">Please enter your comment</span>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> <span data-en="Send Message" data-es="Enviar Mensaje">Send Message</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 data-en="About Toys Kids" data-es="Sobre Toys Kids">About Toys Kids</h4>
+                <p data-en="Your trusted source for quality toys and educational games. Bringing joy to children since 2010." 
+                   data-es="Tu fuente confiable de juguetes de calidad y juegos educativos. Llevando alegría a los niños desde 2010.">
+                   Your trusted source for quality toys and educational games. Bringing joy to children since 2010.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
+                <ul>
+                    <li><a href="#home" data-en="Home" data-es="Inicio">Home</a></li>
+                    <li><a href="#about" data-en="About Us" data-es="Nosotros">About Us</a></li>
+                    <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+                    <li><a href="#products" data-en="Products" data-es="Productos">Products</a></li>
+                    <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 data-en="Contact Info" data-es="Información de Contacto">Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> San Cristobal, Táchira, Venezuela</li>
+                    <li><i class="fas fa-envelope"></i> info@toysplay.com</li>
+                    <li><i class="fab fa-whatsapp"></i> +1 234 567 890</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4 data-en="Follow Us" data-es="Síguenos">Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://instagram.com/toyskids" target="_blank" class="instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://facebook.com/toyskids" target="_blank" class="facebook" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/toyskids" target="_blank" class="linkedin" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://youtube.com/toyskids" target="_blank" class="youtube" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Toys Play. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                title: { en: "Interactive Robot Toy", es: "Robot Interactivo" },
+                description: { 
+                    en: "Advanced electronic robot with voice recognition and programmable movements. Perfect for kids aged 6+.",
+                    es: "Robot electrónico avanzado con reconocimiento de voz y movimientos programables. Perfecto para niños de 6+ años."
+                },
+                images: [
+                    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
+                    "https://images.unsplash.com/photo-1535378437327-b71494669e9d?w=600&q=80",
+                    "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&q=80",
+                    "https://images.unsplash.com/photo-1563291074-2bf8677ac0e5?w=600&q=80",
+                    "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=600&q=80"
+                ],
+                whatsappMessage: {
+                    en: "Hi! I'm interested in the Interactive Robot Toy",
+                    es: "¡Hola! Estoy interesado en el Robot Interactivo"
+                }
+            },
+            {
+                id: 2,
+                title: { en: "Educational Building Blocks", es: "Bloques de Construcción Educativos" },
+                description: { 
+                    en: "STEM learning blocks with 300+ pieces. Develops creativity and problem-solving skills.",
+                    es: "Bloques de aprendizaje STEM con 300+ piezas. Desarrolla creatividad y habilidades de resolución de problemas."
+                },
+                images: [
+                    "https://images.unsplash.com/photo-1587654780291-39c940483713?w=600&q=80",
+                    "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=600&q=80",
+                    "https://images.unsplash.com/photo-1560159752-d6e1832f94cb?w=600&q=80",
+                    "https://images.unsplash.com/photo-1585366119958-2a1b13a55a51?w=600&q=80",
+                    "https://images.unsplash.com/photo-1596908181055-e10301d47d1b?w=600&q=80"
+                ],
+                whatsappMessage: {
+                    en: "Hi! I'm interested in the Educational Building Blocks",
+                    es: "¡Hola! Estoy interesado en los Bloques de Construcción Educativos"
+                }
+            },
+            {
+                id: 3,
+                title: { en: "Remote Control Car", es: "Carro a Control Remoto" },
+                description: { 
+                    en: "High-speed RC car with rechargeable battery. Durable design for indoor and outdoor play.",
+                    es: "Carro RC de alta velocidad con batería recargable. Diseño duradero para juegos interiores y exteriores."
+                },
+                images: [
+                    "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=600&q=80",
+                    "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=600&q=80",
+                    "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=80",
+                    "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80",
+                    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+                ],
+                whatsappMessage: {
+                    en: "Hi! I'm interested in the Remote Control Car",
+                    es: "¡Hola! Estoy interesado en el Carro a Control Remoto"
+                }
+            },
+            {
+                id: 4,
+                title: { en: "Musical Learning Tablet", es: "Tableta Musical de Aprendizaje" },
+                description: { 
+                    en: "Interactive tablet with music, sounds, and educational games. Bilingual English/Spanish.",
+                    es: "Tableta interactiva con música, sonidos y juegos educativos. Bilingüe Inglés/Español."
+                },
+                images: [
+                    "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80",
+                    "https://images.unsplash.com/photo-1588508065123-287b28e013da?w=600&q=80",
+                    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80",
+                    "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80",
+                    "https://images.unsplash.com/photo-1527011046414-4781f1f94f8c?w=600&q=80"
+                ],
+                whatsappMessage: {
+                    en: "Hi! I'm interested in the Musical Learning Tablet",
+                    es: "¡Hola! Estoy interesado en la Tableta Musical de Aprendizaje"
+                }
+            },
+            {
+                id: 5,
+                title: { en: "Water Play Set", es: "Set de Juegos de Agua" },
+                description: { 
+                    en: "Complete water toys set for pool and beach. Includes floating animals and water guns.",
+                    es: "Set completo de juguetes de agua para piscina y playa. Incluye animales flotantes y pistolas de agua."
+                },
+                images: [
+                    "https://images.unsplash.com/photo-1562059390-a761a084768e?w=600&q=80",
+                    "https://images.unsplash.com/photo-1576426863848-c21f5fc67255?w=600&q=80",
+                    "https://images.unsplash.com/photo-1534068590799-09895a701e3e?w=600&q=80",
+                    "https://images.unsplash.com/photo-1575462176248-2c8165569472?w=600&q=80",
+                    "https://images.unsplash.com/photo-1576462176248-c21f5fc67255?w=600&q=80"
+                ],
+                whatsappMessage: {
+                    en: "Hi! I'm interested in the Water Play Set",
+                    es: "¡Hola! Estoy interesado en el Set de Juegos de Agua"
+                }
+            },
+            {
+                id: 6,
+                title: { en: "Science Experiment Kit", es: "Kit de Experimentos Científicos" },
+                description: { 
+                    en: "Hands-on science kit with 50+ experiments. Perfect for young scientists aged 8-12.",
+                    es: "Kit de ciencia práctico con 50+ experimentos. Perfecto para jóvenes científicos de 8-12 años."
+                },
+                images: [
+                    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&q=80",
+                    "https://images.unsplash.com/photo-1576085898323-218337e3e43c?w=600&q=80",
+                    "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=600&q=80",
+                    "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80",
+                    "https://images.unsplash.com/photo-1579165466741-7f35a4755657?w=600&q=80"
+                ],
+                whatsappMessage: {
+                    en: "Hi! I'm interested in the Science Experiment Kit",
+                    es: "¡Hola! Estoy interesado en el Kit de Experimentos Científicos"
+                }
+            }
+        ];
+
+        // State Management
+        let currentLang = 'en';
+        let currentProduct = null;
+        let currentSlide = 0;
+        let reviewsInterval = null;
+
+        // DOM Elements
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainMenu = document.getElementById('mainMenu');
+        const languageToggle = document.getElementById('languageToggle');
+        const currentLangSpan = document.getElementById('currentLang');
+        const productsGrid = document.getElementById('productsGrid');
+        const productModal = document.getElementById('productModal');
+        const modalClose = document.getElementById('modalClose');
+        const contactForm = document.getElementById('contactForm');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            setupEventListeners();
+            startReviewsSlider();
+            validateImages();
+        });
+
+        // Setup Event Listeners
+        function setupEventListeners() {
+            // Mobile Menu
+            mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+            
+            // Language Toggle
+            languageToggle.addEventListener('click', toggleLanguage);
+            languageToggle.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') toggleLanguage();
+            });
+            
+            // Modal
+            modalClose.addEventListener('click', closeModal);
+            document.getElementById('prevSlide').addEventListener('click', prevSlide);
+            document.getElementById('nextSlide').addEventListener('click', nextSlide);
+            productModal.addEventListener('click', (e) => {
+                if (e.target === productModal) closeModal();
+            });
+            
+            // Form
+            contactForm.addEventListener('submit', handleFormSubmit);
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // Close mobile menu if open
+                        mainMenu.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Keyboard navigation for modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && productModal.classList.contains('active')) {
+                    closeModal();
+                }
+                if (e.key === 'ArrowLeft' && productModal.classList.contains('active')) {
+                    prevSlide();
+                }
+                if (e.key === 'ArrowRight' && productModal.classList.contains('active')) {
+                    nextSlide();
+                }
+            });
+        }
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            mainMenu.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', mainMenu.classList.contains('active'));
+        }
+
+        // Toggle Language
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            currentLangSpan.textContent = currentLang.toUpperCase();
+            updateLanguage();
+        }
+
+        // Update Language
+        function updateLanguage() {
+            // Update all elements with data-en and data-es attributes
+            document.querySelectorAll('[data-en][data-es]').forEach(element => {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    const placeholderAttr = currentLang === 'en' ? 'data-en-placeholder' : 'data-es-placeholder';
+                    if (element.hasAttribute(placeholderAttr)) {
+                        element.placeholder = element.getAttribute(placeholderAttr);
+                    }
+                } else {
+                    element.textContent = element.getAttribute(`data-${currentLang}`);
+                }
+            });
+            
+            // Update product descriptions if modal is open
+            if (currentProduct) {
+                document.getElementById('modalTitle').textContent = currentProduct.title[currentLang];
+                document.getElementById('modalDescription').textContent = currentProduct.description[currentLang];
+                document.getElementById('modalWhatsapp').href = getWhatsAppLink(currentProduct.whatsappMessage[currentLang]);
+            }
+        }
+
+        // Render Products
+        function renderProducts() {
+            productsGrid.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <div class="product-image" onclick="openModal(${product.id})">
+                        <img src="${product.images[0]}" alt="${product.title[currentLang]}" loading="lazy">
+                        <div class="product-overlay">
+                            <button class="view-details" data-en="View Details" data-es="Ver Detalles">View Details</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.title[currentLang]}</h3>
+                        <p>${product.description[currentLang]}</p>
+                        <div class="product-actions">
+                            <div class="share-buttons">
+                                <button class="share-btn facebook" onclick="shareOnFacebook(${product.id})" aria-label="Share on Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </button>
+                                <button class="share-btn twitter" onclick="shareOnTwitter(${product.id})" aria-label="Share on Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+                                <button class="share-btn whatsapp" onclick="shareOnWhatsApp(${product.id})" aria-label="Share on WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                            </div>
+                            <a href="${getWhatsAppLink(product.whatsappMessage[currentLang])}" target="_blank" class="whatsapp-link">
+                                <i class="fab fa-whatsapp"></i>
+                                <span data-en="Contact" data-es="Contactar">Contact</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Open Modal
+        function openModal(productId) {
+            currentProduct = products.find(p => p.id === productId);
+            if (!currentProduct) return;
+            
+            currentSlide = 0;
+            renderSlider();
+            updateModalContent();
+            productModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Modal
+        function closeModal() {
+            productModal.classList.remove('active');
+            document.body.style.overflow = '';
+            currentProduct = null;
+        }
+
+        // Render Slider
+        function renderSlider() {
+            const sliderImages = document.getElementById('sliderImages');
+            const sliderDots = document.getElementById('sliderDots');
+            
+            sliderImages.innerHTML = currentProduct.images.map((img, index) => `
+                <div class="modal-slide ${index === 0 ? 'active' : ''}">
+                    <img src="${img}" alt="${currentProduct.title[currentLang]} - Image ${index + 1}" loading="lazy">
+                </div>
+            `).join('');
+            
+            sliderDots.innerHTML = currentProduct.images.map((_, index) => `
+                <span class="dot ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="goToSlide(${index})"></span>
+            `).join('');
+        }
+
+        // Update Modal Content
+        function updateModalContent() {
+            document.getElementById('modalTitle').textContent = currentProduct.title[currentLang];
+            document.getElementById('modalDescription').textContent = currentProduct.description[currentLang];
+            document.getElementById('modalWhatsapp').href = getWhatsAppLink(currentProduct.whatsappMessage[currentLang]);
+        }
+
+        // Slider Controls
+        function updateSlider() {
+            const slides = document.querySelectorAll('.modal-slide');
+            const dots = document.querySelectorAll('.dot');
+            
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % currentProduct.images.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + currentProduct.images.length) % currentProduct.images.length;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        // Share Functions
+        function shareOnFacebook(productId) {
+            const product = products.find(p => p.id === productId);
+            const url = encodeURIComponent(window.location.href + '#product-' + productId);
+            const text = encodeURIComponent(product.title[currentLang]);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnTwitter(productId) {
+            const product = products.find(p => p.id === productId);
+            const url = encodeURIComponent(window.location.href + '#product-' + productId);
+            const text = encodeURIComponent(product.title[currentLang]);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnWhatsApp(productId) {
+            const product = products.find(p => p.id === productId);
+            const text = encodeURIComponent(`Check out ${product.title[currentLang]} at Toys Kids!`);
+            window.open(`https://wa.me/1234567890?text=${text}`, '_blank');
+        }
+
+        // WhatsApp Link
+        function getWhatsAppLink(message) {
+            const fullMessage = encodeURIComponent(message + ' - Toys Kids');
+            return `https://wa.me/1234567890?text=${fullMessage}`;
+        }
+
+        // Reviews Slider
+        function startReviewsSlider() {
+            const slides = document.querySelectorAll('.review-slide');
+            const dots = document.querySelectorAll('.review-dot');
+            let currentIndex = 0;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentIndex = index;
+            }
+            
+            // Auto-rotate every 5 seconds
+            reviewsInterval = setInterval(() => {
+                const nextIndex = (currentIndex + 1) % slides.length;
+                showSlide(nextIndex);
+            }, 5000);
+            
+            // Manual navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(reviewsInterval);
+                    showSlide(index);
+                    startReviewsSlider(); // Restart auto-rotate
+                });
+            });
+        }
+
+        // Form Validation and Submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                requestType: document.getElementById('requestType').value,
+                comment: document.getElementById('comment').value.trim()
+            };
+            
+            // Reset errors
+            document.querySelectorAll('.error-message').forEach(msg => msg.classList.remove('show'));
+            document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(field => {
+                field.classList.remove('error');
+            });
+            
+            // Validate
+            let isValid = true;
+            
+            if (!formData.name) {
+                showError('name', 'Please enter your name');
+                isValid = false;
+            }
+            
+            if (!formData.email || !isValidEmail(formData.email)) {
+                showError('email', 'Please enter a valid email');
+                isValid = false;
+            }
+            
+            if (!formData.phone) {
+                showError('phone', 'Please enter your phone number');
+                isValid = false;
+            }
+            
+            if (!formData.requestType) {
+                showError('requestType', 'Please select a request type');
+                isValid = false;
+            }
+            
+            if (!formData.comment) {
+                showError('comment', 'Please enter your comment');
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Simulate form submission
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            
+            // Create email content
+            const emailContent = `
+                Name: ${formData.name}
+                Email: ${formData.email}
+                Phone: ${formData.phone}
+                Request Type: ${formData.requestType}
+                Comment: ${formData.comment}
+            `;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // In a real scenario, you would send this to a backend
+                console.log('Form submitted:', emailContent);
+                
+                // Show success message
+                document.getElementById('formSuccess').classList.add('show');
+                setTimeout(() => {
+                    document.getElementById('formSuccess').classList.remove('show');
+                }, 5000);
+                
+                // Reset form
+                contactForm.reset();
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }, 1500);
+        }
+
+        function showError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const errorElement = field.parentElement.querySelector('.error-message');
+            
+            field.classList.add('error');
+            errorElement.textContent = currentLang === 'en' ? 
+                errorElement.getAttribute('data-en') : 
+                errorElement.getAttribute('data-es');
+            errorElement.classList.add('show');
+        }
+
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Validate Images
+        function validateImages() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    console.error('Image failed to load:', this.src);
+                    this.src = 'https://via.placeholder.com/600x400?text=Toys+Kids';
+                });
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Performance: Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Service Worker registration (for PWA capabilities)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // Uncomment to register service worker
+                // navigator.serviceWorker.register('/sw.js');
+            });
+        }
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            if (reviewsInterval) {
+                clearInterval(reviewsInterval);
+            }
+        });
+
+        // Prevent form resubmission on refresh
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+</body>
+</html>
