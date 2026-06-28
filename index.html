@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Toys Kids - Your premier destination for quality toys, electronic toys, and educational games">
-    <meta name="keywords" content="toys, electronic toys, children, games, educational toys">
-    <title>Toys Kids - Bringing Joy to Children</title>
+    <meta name="description" content="SoleTrade Welding - Professional welding services in Sydney. Mobile welding, industrial, commercial and residential solutions.">
+    <meta name="keywords" content="welding, Sydney, mobile welding, construction, metal fabrication">
+    <meta name="author" content="SoleTrade Welding">
+    <title>SoleTrade Welding | Professional Welding Services Sydney</title>
     
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,30 +14,34 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for icons -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
-        /* CSS Reset and Base Styles */
-        *, *::before, *::after {
+        /* ============================================
+           CSS VARIABLES & RESET
+           ============================================ */
+        :root {
+            --color-white: #ffffff;
+            --color-green: #2d5016;
+            --color-green-light: #4a7c23;
+            --color-black: #1a1a1a;
+            --color-orange: #ff6b35;
+            --color-orange-dark: #e55a2b;
+            --color-gray: #f5f5f5;
+            --color-text: #333333;
+            --color-text-light: #666666;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        :root {
-            --primary-red: #E63946;
-            --primary-blue: #1D3557;
-            --primary-yellow: #FFB703;
-            --white: #FFFFFF;
-            --gray-light: #F1FAEE;
-            --gray-dark: #457B9D;
-            --text-dark: #1a1a1a;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-            --transition: all 0.3s ease;
         }
 
         html {
@@ -45,10 +50,16 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--color-text);
             line-height: 1.6;
-            color: var(--text-dark);
             overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         img {
@@ -60,34 +71,41 @@
         a {
             text-decoration: none;
             color: inherit;
+            transition: var(--transition);
         }
 
-        ul {
-            list-style: none;
+        button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-family: inherit;
         }
 
-        /* Header Styles */
-        header {
-            background: var(--white);
+        /* ============================================
+           HEADER & NAVIGATION
+           ============================================ */
+        .header {
             position: fixed;
-            width: 100%;
             top: 0;
-            z-index: 1000;
+            left: 0;
+            width: 100%;
+            background: var(--color-white);
             box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
         }
 
-        .header-top {
-            background: linear-gradient(90deg, var(--primary-red) 0%, var(--primary-blue) 50%, var(--primary-yellow) 100%);
-            height: 5px;
+        .header.scrolled {
+            box-shadow: var(--shadow-lg);
         }
 
-        .header-main {
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
         }
 
         .logo {
@@ -97,115 +115,180 @@
         }
 
         .logo img {
-            width: 60px;
             height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary-blue);
+            width: auto;
+            object-fit: contain;
         }
 
         .logo-text {
-            font-size: 1.75rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--primary-red), var(--primary-blue), var(--primary-yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--color-green);
         }
 
-        /* Navigation */
-        nav ul {
+        .logo-text span {
+            color: var(--color-orange);
+        }
+
+        .nav-menu {
             display: flex;
+            list-style: none;
             gap: 2rem;
             align-items: center;
         }
 
-        nav a {
-            font-weight: 500;
-            color: var(--primary-blue);
-            transition: var(--transition);
+        .nav-link {
+            font-weight: 600;
+            color: var(--color-black);
             position: relative;
+            padding: 0.5rem 0;
         }
 
-        nav a::after {
+        .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary-red);
+            background: var(--color-orange);
             transition: var(--transition);
         }
 
-        nav a:hover::after {
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
         }
 
-        nav a:hover {
-            color: var(--primary-red);
+        .nav-link:hover {
+            color: var(--color-green);
         }
 
-        /* Language Selector */
-        .language-selector {
+        .language-switcher {
             display: flex;
             gap: 0.5rem;
             align-items: center;
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--primary-blue);
-            border-radius: 25px;
-            cursor: pointer;
+        }
+
+        .lang-btn {
+            padding: 0.4rem 0.8rem;
+            border: 2px solid var(--color-green);
+            background: transparent;
+            color: var(--color-green);
+            font-weight: 600;
+            border-radius: 4px;
             transition: var(--transition);
         }
 
-        .language-selector:hover {
-            background: var(--gray-light);
+        .lang-btn.active,
+        .lang-btn:hover {
+            background: var(--color-green);
+            color: var(--color-white);
         }
 
-        .language-selector i {
-            color: var(--primary-blue);
-        }
-
-        .language-selector span {
-            font-weight: 500;
-            color: var(--primary-blue);
-        }
-
-        /* Mobile Menu Toggle */
         .mobile-menu-toggle {
             display: none;
             flex-direction: column;
             gap: 5px;
-            cursor: pointer;
+            background: none;
             padding: 0.5rem;
         }
 
         .mobile-menu-toggle span {
             width: 25px;
             height: 3px;
-            background: var(--primary-blue);
+            background: var(--color-green);
             transition: var(--transition);
-            border-radius: 3px;
         }
 
-        /* Hero Section */
+        /* ============================================
+           HERO SECTION
+           ============================================ */
         .hero {
             margin-top: 80px;
-            min-height: 90vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                        url('https://images.unsplash.com/photo-1562059390-a761a084768e?w=1920&q=80') center/cover no-repeat;
+            min-height: calc(100vh - 80px);
+            background: linear-gradient(135deg, rgba(45,80,22,0.85) 0%, rgba(26,26,26,0.85) 100%),
+                        url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--white);
+            color: var(--color-white);
+            padding: 4rem 2rem;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
         }
 
         .hero-content {
+            position: relative;
+            z-index: 1;
             max-width: 800px;
-            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 span {
+            color: var(--color-orange);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: var(--color-orange);
+            color: var(--color-white);
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            animation: fadeInUp 1s ease 0.4s both;
+            border: 2px solid var(--color-orange);
+        }
+
+        .btn:hover {
+            background: var(--color-orange-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,107,53,0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--color-white);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--color-white);
+            color: var(--color-green);
         }
 
         @keyframes fadeInUp {
@@ -219,96 +302,70 @@
             }
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--primary-yellow);
-            color: var(--primary-blue);
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-            background: #ffc107;
-        }
-
-        .btn-primary {
-            background: var(--primary-red);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: #d62839;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 5%;
-            max-width: 1400px;
+        /* ============================================
+           SECTION STYLES
+           ============================================ */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            color: var(--primary-blue);
             margin-bottom: 3rem;
-            position: relative;
-            font-weight: 700;
         }
 
-        .section-title::after {
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--color-green);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
             content: '';
-            display: block;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-red), var(--primary-yellow));
-            margin: 1rem auto 0;
-            border-radius: 2px;
+            background: var(--color-orange);
         }
 
-        /* About Section */
+        .section-title p {
+            color: var(--color-text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 1.5rem auto 0;
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
         .about {
-            background: var(--gray-light);
+            background: var(--color-gray);
         }
 
-        .about-content {
+        .about-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
 
         .about-image {
             position: relative;
-            border-radius: 15px;
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow-lg);
         }
 
         .about-image img {
             width: 100%;
-            height: 400px;
+            height: 500px;
             object-fit: cover;
             transition: var(--transition);
         }
@@ -317,19 +374,49 @@
             transform: scale(1.05);
         }
 
-        .about-text h3 {
+        .about-content h3 {
             font-size: 2rem;
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
+            color: var(--color-green);
+            margin-bottom: 1.5rem;
         }
 
-        .about-text p {
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-            line-height: 1.8;
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--color-text-light);
+            font-size: 1.05rem;
         }
 
-        /* Services Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--color-white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-orange);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -337,178 +424,261 @@
         }
 
         .service-card {
-            background: var(--white);
+            background: var(--color-white);
             padding: 2.5rem;
-            border-radius: 15px;
+            border-radius: 10px;
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 2px solid transparent;
+            border-bottom: 4px solid transparent;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-lg);
-            border-color: var(--primary-yellow);
+            border-bottom-color: var(--color-orange);
         }
 
         .service-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-blue));
+            margin: 0 auto 1.5rem;
+            background: var(--color-green);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: var(--white);
             font-size: 2rem;
+            color: var(--color-white);
         }
 
         .service-card h3 {
             font-size: 1.5rem;
-            color: var(--primary-blue);
+            color: var(--color-green);
             margin-bottom: 1rem;
         }
 
-        /* Products Gallery */
-        .products {
-            background: var(--gray-light);
+        .service-card p {
+            color: var(--color-text-light);
         }
 
-        .products-grid {
+        /* ============================================
+           PROJECTS SECTION
+           ============================================ */
+        .projects {
+            background: var(--color-gray);
+        }
+
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .pagination button {
+            padding: 0.5rem 1rem;
+            background: var(--color-white);
+            border: 2px solid var(--color-green);
+            color: var(--color-green);
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .pagination button.active {
+            background: var(--color-green);
+            color: var(--color-white);
+        }
+
+        .pagination button:hover:not(.active) {
+            background: var(--color-gray);
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
-        .product-card {
-            background: var(--white);
-            border-radius: 15px;
+        .project-card {
+            position: relative;
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
+            cursor: pointer;
+            background: var(--color-white);
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .product-image {
+        .project-image {
             position: relative;
             height: 300px;
             overflow: hidden;
-            cursor: pointer;
         }
 
-        .product-image img {
+        .project-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: var(--transition);
         }
 
-        .product-card:hover .product-image img {
+        .project-card:hover .project-image img {
             transform: scale(1.1);
         }
 
-        .product-overlay {
+        /* Three dots menu */
+        .project-menu {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 10;
+        }
+
+        .menu-dots {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .menu-dots:hover {
+            background: var(--color-white);
+            transform: scale(1.1);
+        }
+
+        .menu-dots i {
+            color: var(--color-text);
+            font-size: 1.2rem;
+        }
+
+        .share-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: var(--color-white);
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            padding: 1rem;
+            display: none;
+            flex-direction: column;
+            gap: 0.5rem;
+            min-width: 200px;
+            z-index: 20;
+        }
+
+        .share-dropdown.active {
+            display: flex;
+        }
+
+        .share-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 5px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .share-option:hover {
+            background: var(--color-gray);
+        }
+
+        .share-option i {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .share-option.instagram i { color: #E4405F; }
+        .share-option.x i { color: #000000; }
+        .share-option.facebook i { color: #1877F2; }
+        .share-option.whatsapp i { color: #25D366; }
+        .share-option.link i { color: var(--color-green); }
+
+        .project-overlay {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(29, 53, 87, 0.8);
+            background: rgba(45,80,22,0.9);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             opacity: 0;
             transition: var(--transition);
+            padding: 2rem;
+            text-align: center;
+            color: var(--color-white);
         }
 
-        .product-card:hover .product-overlay {
+        .project-card:hover .project-overlay {
             opacity: 1;
         }
 
-        .view-details {
-            color: var(--white);
-            font-size: 1.2rem;
-            font-weight: 600;
-            border: 2px solid var(--white);
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .view-details:hover {
-            background: var(--white);
-            color: var(--primary-blue);
-        }
-
-        .product-info {
-            padding: 1.5rem;
-        }
-
-        .product-info h3 {
-            font-size: 1.3rem;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-        }
-
-        .product-info p {
-            color: var(--gray-dark);
+        .project-overlay h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
 
-        .product-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .project-overlay p {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
         }
 
-        .share-buttons {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .share-btn {
-            width: 35px;
-            height: 35px;
+        .project-whatsapp {
+            width: 50px;
+            height: 50px;
+            background: #25D366;
             border-radius: 50%;
-            border: none;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
-            color: var(--white);
-        }
-
-        .share-btn:hover {
-            transform: scale(1.2);
-        }
-
-        .share-btn.facebook { background: #1877F2; }
-        .share-btn.twitter { background: #1DA1F2; }
-        .share-btn.whatsapp { background: #25D366; }
-
-        .whatsapp-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #25D366;
-            font-weight: 600;
+            color: var(--color-white);
+            font-size: 1.5rem;
             transition: var(--transition);
         }
 
-        .whatsapp-link:hover {
-            color: #128C7E;
+        .project-whatsapp:hover {
+            transform: scale(1.1) rotate(10deg);
         }
 
-        /* Modal */
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            color: var(--color-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           PROJECT MODAL
+           ============================================ */
         .modal {
             display: none;
             position: fixed;
@@ -516,7 +686,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0,0,0,0.95);
             z-index: 2000;
             overflow-y: auto;
         }
@@ -528,25 +698,19 @@
         }
 
         .modal-content {
-            background: var(--white);
-            border-radius: 15px;
-            max-width: 900px;
+            background: var(--color-white);
+            max-width: 1000px;
             width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
+            margin: 2rem auto;
+            border-radius: 10px;
+            overflow: hidden;
             position: relative;
             animation: modalFadeIn 0.3s ease;
         }
 
         @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .modal-close {
@@ -555,10 +719,12 @@
             right: 1rem;
             width: 40px;
             height: 40px;
+            background: var(--color-orange);
+            color: var(--color-white);
             border-radius: 50%;
-            background: var(--primary-red);
-            color: var(--white);
-            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.5rem;
             cursor: pointer;
             z-index: 10;
@@ -566,69 +732,93 @@
         }
 
         .modal-close:hover {
-            background: #d62839;
+            background: var(--color-orange-dark);
             transform: rotate(90deg);
+        }
+
+        .modal-header {
+            background: var(--color-green);
+            color: var(--color-white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .modal-header h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
 
         .modal-body {
             padding: 2rem;
         }
 
-        .modal-slider {
+        .slider-container {
             position: relative;
-            height: 400px;
-            overflow: hidden;
-            border-radius: 10px;
             margin-bottom: 1.5rem;
         }
 
-        .modal-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+        .slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
         }
 
-        .modal-slide.active {
-            opacity: 1;
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease;
         }
 
-        .modal-slide img {
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
             width: 100%;
-            height: 100%;
+            height: 500px;
             object-fit: cover;
         }
 
-        .slider-controls {
+        .slide-caption {
             position: absolute;
-            top: 50%;
+            bottom: 0;
             left: 0;
             right: 0;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 1rem;
-            transform: translateY(-50%);
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--color-white);
+            padding: 2rem 1.5rem 1.5rem;
+        }
+
+        .slide-caption h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
         }
 
         .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
             width: 50px;
             height: 50px;
+            background: var(--color-white);
+            color: var(--color-green);
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
             cursor: pointer;
-            font-size: 1.5rem;
-            color: var(--primary-blue);
             transition: var(--transition);
+            box-shadow: var(--shadow);
         }
 
         .slider-btn:hover {
-            background: var(--white);
-            transform: scale(1.1);
+            background: var(--color-orange);
+            color: var(--color-white);
         }
+
+        .slider-btn.prev { left: 1rem; }
+        .slider-btn.next { right: 1rem; }
 
         .slider-dots {
             display: flex;
@@ -641,126 +831,151 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: var(--gray-dark);
+            background: var(--color-gray);
             cursor: pointer;
             transition: var(--transition);
         }
 
         .dot.active {
-            background: var(--primary-blue);
-            width: 30px;
-            border-radius: 6px;
+            background: var(--color-orange);
         }
 
-        .modal-info h3 {
-            font-size: 2rem;
-            color: var(--primary-blue);
+        .modal-description {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--color-gray);
+            border-radius: 8px;
+        }
+
+        .modal-description h4 {
+            color: var(--color-green);
             margin-bottom: 1rem;
         }
 
-        .modal-info p {
-            color: var(--text-dark);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+        .technical-details {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--color-white);
+            border-radius: 5px;
         }
 
-        /* Reviews Section */
-        .reviews-slider {
+        .technical-details h5 {
+            color: var(--color-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .technical-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .technical-details li {
+            padding: 0.25rem 0;
+            color: var(--color-text-light);
+        }
+
+        .technical-details li:before {
+            content: "▸ ";
+            color: var(--color-orange);
+            margin-right: 0.5rem;
+        }
+
+        .modal-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: #25D366;
+            color: var(--color-white);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .modal-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+           TESTIMONIALS SECTION
+           ============================================ */
+        .testimonials-slider {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
             overflow: hidden;
         }
 
-        .review-slide {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .testimonial {
+            min-width: 100%;
+            padding: 2rem;
             text-align: center;
-            display: none;
-            animation: fadeIn 0.5s ease;
         }
 
-        .review-slide.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .review-avatar {
+        .testimonial-avatar {
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            object-fit: cover;
             margin: 0 auto 1.5rem;
-            border: 4px solid var(--primary-yellow);
+            overflow: hidden;
+            border: 4px solid var(--color-orange);
         }
 
-        .review-text {
-            font-size: 1.1rem;
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
             font-style: italic;
-            color: var(--text-dark);
+            color: var(--color-text-light);
             margin-bottom: 1.5rem;
             line-height: 1.8;
         }
 
-        .review-author {
-            font-weight: 600;
-            color: var(--primary-blue);
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--color-green);
             font-size: 1.2rem;
         }
 
-        .review-company {
-            color: var(--gray-dark);
-            font-size: 0.9rem;
+        .testimonial-company {
+            color: var(--color-orange);
+            font-weight: 600;
         }
 
-        .review-dots {
+        .testimonial-dots {
             display: flex;
             justify-content: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
             margin-top: 2rem;
         }
 
-        .review-dot {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: var(--gray-dark);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .review-dot.active {
-            background: var(--primary-blue);
-            transform: scale(1.3);
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--gray-light);
-        }
-
-        .contact-content {
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .contact-info {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
+            gap: 4rem;
         }
 
         .contact-info h3 {
             font-size: 1.8rem;
-            color: var(--primary-blue);
+            color: var(--color-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
             margin-bottom: 2rem;
         }
 
@@ -774,41 +989,63 @@
         .contact-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-blue));
+            background: var(--color-green);
+            color: var(--color-white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
             font-size: 1.2rem;
             flex-shrink: 0;
         }
 
-        .contact-item div h4 {
-            color: var(--primary-blue);
+        .contact-item div strong {
+            display: block;
+            color: var(--color-green);
             margin-bottom: 0.25rem;
         }
 
         .contact-item div p, .contact-item div a {
-            color: var(--text-dark);
-            transition: var(--transition);
+            color: var(--color-text-light);
         }
 
         .contact-item div a:hover {
-            color: var(--primary-red);
+            color: var(--color-orange);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .social-link.instagram { background: #E4405F; }
+        .social-link.facebook { background: #1877F2; }
+        .social-link.linkedin { background: #0A66C2; }
+        .social-link.youtube { background: #FF0000; }
+        .social-link.whatsapp { background: #25D366; }
+
+        .social-link:hover {
+            transform: translateY(-5px) rotate(360deg);
         }
 
         .contact-form {
-            background: var(--white);
+            background: var(--color-white);
             padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-form h3 {
-            font-size: 1.8rem;
-            color: var(--primary-blue);
-            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
         }
 
         .form-group {
@@ -818,12 +1055,12 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--primary-blue);
-            font-weight: 500;
+            color: var(--color-green);
+            font-weight: 600;
         }
 
         .form-group label .required {
-            color: var(--primary-red);
+            color: var(--color-orange);
         }
 
         .form-group input,
@@ -831,8 +1068,8 @@
         .form-group textarea {
             width: 100%;
             padding: 0.75rem 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
             font-family: inherit;
             font-size: 1rem;
             transition: var(--transition);
@@ -842,17 +1079,17 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary-blue);
+            border-color: var(--color-green);
         }
 
         .form-group input.error,
         .form-group select.error,
         .form-group textarea.error {
-            border-color: var(--primary-red);
+            border-color: #e74c3c;
         }
 
         .error-message {
-            color: var(--primary-red);
+            color: #e74c3c;
             font-size: 0.85rem;
             margin-top: 0.25rem;
             display: none;
@@ -867,98 +1104,136 @@
             min-height: 120px;
         }
 
-        /* Footer */
-        footer {
-            background: var(--primary-blue);
-            color: var(--white);
-            padding: 3rem 5% 1rem;
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--color-green);
+            color: var(--color-white);
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: var(--transition);
         }
 
-        .footer-content {
-            max-width: 1400px;
+        .btn-submit:hover {
+            background: var(--color-green-light);
+            transform: translateY(-2px);
+        }
+
+        .form-success {
+            display: none;
+            padding: 1.5rem;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 3rem;
             margin-bottom: 2rem;
         }
 
-        .footer-section h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-yellow);
+        .footer-brand .logo-text {
+            color: var(--color-white);
+            margin-bottom: 1rem;
+            display: block;
         }
 
-        .footer-section ul li {
+        .footer-brand p {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer h4 {
+            color: var(--color-orange);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
             margin-bottom: 0.75rem;
         }
 
-        .footer-section a {
-            color: var(--white);
+        .footer-links a {
+            color: #aaa;
             transition: var(--transition);
         }
 
-        .footer-section a:hover {
-            color: var(--primary-yellow);
+        .footer-links a:hover {
+            color: var(--color-orange);
             padding-left: 5px;
         }
 
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 1.3rem;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            transform: translateY(-5px);
-            padding-left: 0;
-        }
-
-        .social-links .instagram { background: #E4405F; }
-        .social-links .facebook { background: #1877F2; }
-        .social-links .linkedin { background: #0A66C2; }
-        .social-links .youtube { background: #FF0000; }
-        .social-links .whatsapp { background: #25D366; }
-
         .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 1.5rem;
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.8);
+            color: #666;
         }
 
-        /* Responsive Design */
+        .footer-bottom a {
+            color: var(--color-orange);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
         @media (max-width: 992px) {
-            .header-main {
-                padding: 1rem 3%;
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            nav ul {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
                 position: fixed;
                 top: 80px;
                 left: -100%;
                 width: 100%;
                 height: calc(100vh - 80px);
-                background: var(--white);
+                background: var(--color-white);
                 flex-direction: column;
                 padding: 2rem;
                 transition: var(--transition);
                 gap: 1.5rem;
             }
 
-            nav ul.active {
+            .nav-menu.active {
                 left: 0;
             }
 
@@ -966,143 +1241,86 @@
                 display: flex;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
             }
 
-            .about-content,
-            .contact-content {
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
 
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            html {
-                font-size: 14px;
-            }
-
-            .hero {
-                margin-top: 70px;
-                min-height: 70vh;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            section {
-                padding: 3rem 3%;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .services-grid {
+            .stats {
                 grid-template-columns: 1fr;
             }
 
-            .modal-slider {
-                height: 250px;
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
             }
 
-            .modal-body {
-                padding: 1.5rem;
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .slide img {
+                height: 300px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-header {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
 
         @media (max-width: 480px) {
-            .logo-text {
-                font-size: 1.25rem;
+            html {
+                font-size: 14px;
             }
 
-            .logo img {
-                width: 45px;
-                height: 45px;
+            .section {
+                padding: 3rem 1rem;
             }
 
-            .product-actions {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
+            .service-card {
+                padding: 1.5rem;
             }
-        }
 
-        /* Utility Classes */
-        .hidden {
-            display: none !important;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .mt-2 {
-            margin-top: 2rem;
-        }
-
-        /* Loading State */
-        .loading {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-
-        /* Success Message */
-        .alert {
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            display: none;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(-20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
+            .contact-form {
+                padding: 1.5rem;
             }
         }
 
-        .alert.show {
-            display: block;
-        }
-
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .alert-error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-
-        /* Print Styles */
-        @media print {
-            header, footer, .btn {
-                display: none;
-            }
-            
-            .hero {
-                margin-top: 0;
-            }
-        }
-
-        /* Accessibility */
+        /* ============================================
+           UTILITY CLASSES
+           ============================================ */
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .hidden { display: none; }
         .sr-only {
             position: absolute;
             width: 1px;
@@ -1110,1007 +1328,1557 @@
             padding: 0;
             margin: -1px;
             overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
+            clip: rect(0,0,0,0);
+            border: 0;
         }
 
-        *:focus-visible {
-            outline: 3px solid var(--primary-yellow);
-            outline-offset: 2px;
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: var(--color-white);
+            animation: spin 1s ease-in-out infinite;
         }
 
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            
-            html {
-                scroll-behavior: auto;
-            }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-top"></div>
-        <div class="header-main">
-            <div class="logo">
-                <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=200&q=80" alt="Toys Kids Logo">
-                <span class="logo-text">Toys Kids</span>
-            </div>
+
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#home" class="logo">
+                <div style="width:60px;height:60px;background:var(--color-green);border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:1.5rem;">ST</div>
+                <span class="logo-text">Sole<span>Trade</span></span>
+            </a>
             
             <nav>
-                <ul id="mainMenu">
-                    <li><a href="#home" data-en="Home" data-es="Inicio">Home</a></li>
-                    <li><a href="#about" data-en="About Us" data-es="Nosotros">About Us</a></li>
-                    <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
-                    <li><a href="#products" data-en="Products" data-es="Productos">Products</a></li>
-                    <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
-                    <li>
-                        <div class="language-selector" id="languageToggle" role="button" tabindex="0" aria-label="Toggle language">
-                            <i class="fas fa-globe"></i>
-                            <span id="currentLang">EN</span>
-                        </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link active" data-en="Home" data-es="Inicio">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-en="About Us" data-es="Nosotros">About Us</a></li>
+                    <li><a href="#services" class="nav-link" data-en="Services" data-es="Servicios">Services</a></li>
+                    <li><a href="#projects" class="nav-link" data-en="Projects" data-es="Proyectos">Projects</a></li>
+                    <li><a href="#contact" class="nav-link" data-en="Contact" data-es="Contacto">Contact</a></li>
+                    <li class="language-switcher">
+                        <button class="lang-btn active" id="btnEn" onclick="switchLanguage('en')" aria-label="English">EN</button>
+                        <button class="lang-btn" id="btnEs" onclick="switchLanguage('es')" aria-label="Español">ES</button>
                     </li>
                 </ul>
             </nav>
-            
-            <div class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1 data-en="Where Imagination Comes to Life" data-es="Donde la Imaginación Cobra Vida">Where Imagination Comes to Life</h1>
-            <p data-en="Discover the best toys for your children. Quality, fun, and educational toys that create lasting memories." 
-               data-es="Descubre los mejores juguetes para tus hijos. Juguetes de calidad, divertidos y educativos que crean recuerdos duraderos.">
-               Discover the best toys for your children. Quality, fun, and educational toys that create lasting memories.
+            <h1 data-en="Professional <span>Welding</span> Services" data-es="Servicios Profesionales de <span>Soldadura</span>">
+                Professional <span>Welding</span> Services
+            </h1>
+            <p data-en="Expert mobile welding solutions for industrial, commercial and residential projects in Sydney. Quality workmanship guaranteed." 
+               data-es="Soluciones expertas de soldadura móvil para proyectos industriales, comerciales y residenciales en Sydney. Calidad garantizada.">
+                Expert mobile welding solutions for industrial, commercial and residential projects in Sydney. Quality workmanship guaranteed.
             </p>
-            <a href="#products" class="btn" data-en="Explore Toys" data-es="Explorar Juguetes">Explore Toys</a>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">
+                    <i class="fas fa-phone"></i>
+                    <span data-en="Get a Quote" data-es="Cotizar">Get a Quote</span>
+                </a>
+                <a href="#projects" class="btn btn-outline">
+                    <span data-en="View Projects" data-es="Ver Proyectos">View Projects</span>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
-        <h2 class="section-title" data-en="About Us" data-es="Nosotros">About Us</h2>
-        <div class="about-content">
+    <section class="section about" id="about">
+        <div class="section-title">
+            <h2 data-en="About Us" data-es="Nosotros">About Us</h2>
+            <p data-en="Leading welding specialists with years of experience in construction and industrial projects" 
+               data-es="Especialistas líderes en soldadura con años de experiencia en construcción y proyectos industriales">
+                Leading welding specialists with years of experience in construction and industrial projects
+            </p>
+        </div>
+        
+        <div class="about-container">
             <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=800&q=80" alt="Electronic Toys">
+                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Industrial welding construction work" 
+                     loading="lazy">
             </div>
-            <div class="about-text">
-                <h3 data-en="Bringing Joy Since 2010" data-es="Llevando Alegría Desde 2010">Bringing Joy Since 2010</h3>
-                <p data-en="At Toys Kids, we are passionate about providing the highest quality toys that inspire creativity, learning, and fun. We specialize in electronic toys and educational games that help children develop essential skills while having a blast." 
-                   data-es="En Toys Kids, somos apasionados por proporcionar juguetes de la más alta calidad que inspiran creatividad, aprendizaje y diversión. Nos especializamos en juguetes electrónicos y juegos educativos que ayudan a los niños a desarrollar habilidades esenciales mientras se divierten.">
-                   At Toys Kids, we are passionate about providing the highest quality toys that inspire creativity, learning, and fun. We specialize in electronic toys and educational games that help children develop essential skills while having a blast.
+            <div class="about-content">
+                <h3 data-en="Building Excellence Through Precision Welding" data-es="Construyendo Excelencia con Soldadura de Precisión">
+                    Building Excellence Through Precision Welding
+                </h3>
+                <p data-en="SoleTrade Welding is a premier welding service provider based in Sydney, Australia. We specialize in delivering high-quality welding solutions for diverse industries including construction, manufacturing, agriculture, and residential projects." 
+                   data-es="SoleTrade Welding es un proveedor principal de servicios de soldadura con sede en Sydney, Australia. Nos especializamos en entregar soluciones de soldadura de alta calidad para diversas industrias incluyendo construcción, manufactura, agricultura y proyectos residenciales.">
+                    SoleTrade Welding is a premier welding service provider based in Sydney, Australia. We specialize in delivering high-quality welding solutions for diverse industries including construction, manufacturing, agriculture, and residential projects.
                 </p>
-                <p data-en="Our commitment to safety, quality, and customer satisfaction has made us a trusted name in the toy industry. We carefully select each product to ensure it meets our high standards and provides hours of entertainment." 
-                   data-es="Nuestro compromiso con la seguridad, la calidad y la satisfacción del cliente nos ha convertido en un nombre de confianza en la industria de los juguetes. Seleccionamos cuidadosamente cada producto para asegurar que cumpla con nuestros altos estándares y proporcione horas de entretenimiento.">
-                   Our commitment to safety, quality, and customer satisfaction has made us a trusted name in the toy industry. We carefully select each product to ensure it meets our high standards and provides hours of entertainment.
+                <p data-en="Our team of certified welders brings expertise in various welding techniques and materials. We pride ourselves on safety, precision, and customer satisfaction. Whether it's a small repair or a large-scale industrial project, we deliver exceptional results every time." 
+                   data-es="Nuestro equipo de soldadores certificados aporta experiencia en diversas técnicas de soldadura y materiales. Nos enorgullecemos de la seguridad, precisión y satisfacción del cliente. Ya sea una pequeña reparación o un proyecto industrial a gran escala, entregamos resultados excepcionales cada vez.">
+                    Our team of certified welders brings expertise in various welding techniques and materials. We pride ourselves on safety, precision, and customer satisfaction. Whether it's a small repair or a large-scale industrial project, we deliver exceptional results every time.
                 </p>
-                <a href="#contact" class="btn btn-primary" data-en="Get in Touch" data-es="Contáctanos">Get in Touch</a>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="15">0</span>
+                        <div class="stat-label" data-en="Years Experience" data-es="Años de Experiencia">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="500">0</span>
+                        <div class="stat-label" data-en="Projects Completed" data-es="Proyectos Completados">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="100">0</span>
+                        <div class="stat-label" data-en="Satisfied Clients" data-es="Clientes Satisfechos">Satisfied Clients</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
-        <h2 class="section-title" data-en="Our Services" data-es="Nuestros Servicios">Our Services</h2>
+    <section class="section" id="services">
+        <div class="section-title">
+            <h2 data-en="Our Services" data-es="Nuestros Servicios">Our Services</h2>
+            <p data-en="Comprehensive welding solutions tailored to meet your specific needs" 
+               data-es="Soluciones integrales de soldadura adaptadas a sus necesidades específicas">
+                Comprehensive welding solutions tailored to meet your specific needs
+            </p>
+        </div>
+
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i class="fas fa-home"></i>
                 </div>
-                <h3 data-en="Toy Sales" data-es="Venta de Juguetes">Toy Sales</h3>
-                <p data-en="Wide variety of toys for all ages. From electronic toys to educational games, we have everything your child needs." 
-                   data-es="Amplia variedad de juguetes para todas las edades. Desde juguetes electrónicos hasta juegos educativos, tenemos todo lo que tu hijo necesita.">
-                   Wide variety of toys for all ages. From electronic toys to educational games, we have everything your child needs.
+                <h3 data-en="Mobile Welding at Home" data-es="Soldadura Móvil a Domicilio">Mobile Welding at Home</h3>
+                <p data-en="Professional on-site welding services at your residence. We bring our equipment and expertise directly to your home for convenient repairs, modifications, and custom fabrications." 
+                   data-es="Servicios profesionales de soldadura en el lugar en su residencia. Llevamos nuestro equipo y experiencia directamente a su hogar para reparaciones, modificaciones y fabricaciones personalizadas convenientes.">
+                    Professional on-site welding services at your residence. We bring our equipment and expertise directly to your home for convenient repairs, modifications, and custom fabrications.
                 </p>
             </div>
-            
+
             <div class="service-card">
                 <div class="service-icon">
-                    <i class="fas fa-calendar-alt"></i>
+                    <i class="fas fa-file-contract"></i>
                 </div>
-                <h3 data-en="Toy Events" data-es="Eventos de Juguetes">Toy Events</h3>
-                <p data-en="We organize fun toy events, birthday parties, and educational workshops for children of all ages." 
-                   data-es="Organizamos divertidos eventos de juguetes, fiestas de cumpleaños y talleres educativos para niños de todas las edades.">
-                   We organize fun toy events, birthday parties, and educational workshops for children of all ages.
+                <h3 data-en="Contract Welding Services" data-es="Servicios de Soldadura por Contrato">Contract Welding Services</h3>
+                <p data-en="Long-term welding contracts for businesses and industrial facilities. Reliable, scheduled services to meet your ongoing welding needs with dedicated support." 
+                   data-es="Contratos de soldadura a largo plazo para empresas e instalaciones industriales. Servicios confiables y programados para satisfacer sus necesidades continuas de soldadura con soporte dedicado.">
+                    Long-term welding contracts for businesses and industrial facilities. Reliable, scheduled services to meet your ongoing welding needs with dedicated support.
                 </p>
             </div>
-            
+
             <div class="service-card">
                 <div class="service-icon">
-                    <i class="fas fa-tags"></i>
+                    <i class="fas fa-truck-pickup"></i>
                 </div>
-                <h3 data-en="Special Promotions" data-es="Promociones Especiales">Special Promotions</h3>
-                <p data-en="Exclusive deals and promotions throughout the year. Subscribe to our newsletter to stay updated!" 
-                   data-es="Ofertas y promociones exclusivas durante todo el año. ¡Suscríbete a nuestro boletín para mantenerte actualizado!">
-                   Exclusive deals and promotions throughout the year. Subscribe to our newsletter to stay updated!
+                <h3 data-en="Mobile Welding Unit" data-es="Unidad de Soldadura Móvil">Mobile Welding Unit</h3>
+                <p data-en="Fully equipped mobile welding unit that comes to you anywhere in Sydney. Perfect for emergency repairs, on-site fabrication, and projects that can't be moved." 
+                   data-es="Unidad de soldadura móvil totalmente equipada que va a cualquier lugar de Sydney. Perfecto para reparaciones de emergencia, fabricación en el lugar y proyectos que no se pueden mover.">
+                    Fully equipped mobile welding unit that comes to you anywhere in Sydney. Perfect for emergency repairs, on-site fabrication, and projects that can't be moved.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-home-alt"></i>
+                </div>
+                <h3 data-en="Residential Areas" data-es="Zonas Residenciales">Residential Areas</h3>
+                <p data-en="Specialized welding services for residential neighborhoods. Gates, fences, railings, structural repairs, and custom metalwork for homes and apartments." 
+                   data-es="Servicios de soldadura especializados para vecindarios residenciales. Portones, cercas, barandillas, reparaciones estructurales y trabajos de metal personalizados para hogares y apartamentos.">
+                    Specialized welding services for residential neighborhoods. Gates, fences, railings, structural repairs, and custom metalwork for homes and apartments.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <h3 data-en="Parks & Industrial Zones" data-es="Parques y Zonas Industriales">Parks & Industrial Zones</h3>
+                <p data-en="Welding services for public parks, recreational facilities, and industrial zones. Equipment repairs, structural work, and maintenance for public and private facilities." 
+                   data-es="Servicios de soldadura para parques públicos, instalaciones recreativas y zonas industriales. Reparaciones de equipos, trabajo estructural y mantenimiento para instalaciones públicas y privadas.">
+                    Welding services for public parks, recreational facilities, and industrial zones. Equipment repairs, structural work, and maintenance for public and private facilities.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-house"></i>
+                </div>
+                <h3 data-en="Remote Welding Sydney" data-es="Soldadura Remota Sydney">Remote Welding Sydney</h3>
+                <p data-en="Remote welding consultation and project management services in Sydney. Expert guidance for welding projects, inspections, and quality control from anywhere." 
+                   data-es="Servicios de consulta y gestión de proyectos de soldadura remota en Sydney. Orientación experta para proyectos de soldadura, inspecciones y control de calidad desde cualquier lugar.">
+                    Remote welding consultation and project management services in Sydney. Expert guidance for welding projects, inspections, and quality control from anywhere.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <h3 data-en="Farms & Ranches" data-es="Fincas y Granjas">Farms & Ranches</h3>
+                <p data-en="Specialized welding for agricultural equipment, fencing, gates, and farm structures. Keep your operations running smoothly with our reliable farm welding services." 
+                   data-es="Soldadura especializada para equipos agrícolas, cercas, portones y estructuras de granja. Mantenga sus operaciones funcionando sin problemas con nuestros confiables servicios de soldadura para granjas.">
+                    Specialized welding for agricultural equipment, fencing, gates, and farm structures. Keep your operations running smoothly with our reliable farm welding services.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <h3 data-en="Factories & Industrial" data-es="Fábricas e Industrial">Factories & Industrial</h3>
+                <p data-en="Heavy-duty industrial welding for manufacturing facilities, machinery repairs, structural steel work, and production line maintenance." 
+                   data-es="Soldadura industrial pesada para instalaciones de manufactura, reparaciones de maquinaria, trabajo de acero estructural y mantenimiento de líneas de producción.">
+                    Heavy-duty industrial welding for manufacturing facilities, machinery repairs, structural steel work, and production line maintenance.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cut"></i>
+                </div>
+                <h3 data-en="Cutting & Grooving" data-es="Corte y Ranurado">Cutting & Grooving</h3>
+                <p data-en="Precision metal cutting and grooving services using advanced equipment. Clean cuts for various metals and materials to your exact specifications." 
+                   data-es="Servicios de corte y ranurado de metal de precisión usando equipo avanzado. Cortes limpios para varios metales y materiales a sus especificaciones exactas.">
+                    Precision metal cutting and grooving services using advanced equipment. Clean cuts for various metals and materials to your exact specifications.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section class="products" id="products">
-        <h2 class="section-title" data-en="Our Products" data-es="Nuestros Productos">Our Products</h2>
-        <div class="products-grid" id="productsGrid">
-            <!-- Products will be dynamically inserted here -->
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="section-title">
+            <h2 data-en="Our Projects" data-es="Nuestros Proyectos">Our Projects</h2>
+            <p data-en="Browse our portfolio of completed welding projects showcasing before and after transformations" 
+               data-es="Explore nuestro portafolio de proyectos de soldadura completados mostrando transformaciones antes y después">
+                Browse our portfolio of completed welding projects showcasing before and after transformations
+            </p>
+        </div>
+
+        <div class="projects-header">
+            <div class="pagination" id="pagination">
+                <!-- Pagination buttons will be inserted by JavaScript -->
+            </div>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will be dynamically inserted by JavaScript -->
         </div>
     </section>
 
-    <!-- Product Modal -->
-    <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal">
         <div class="modal-content">
-            <button class="modal-close" id="modalClose" aria-label="Close modal">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close modal">
                 <i class="fas fa-times"></i>
             </button>
+            <div class="modal-header">
+                <h3 id="modalTitle">Project Title</h3>
+                <p id="modalSubtitle">Project Category</p>
+            </div>
             <div class="modal-body">
-                <div class="modal-slider">
-                    <div class="slider-controls">
-                        <button class="slider-btn" id="prevSlide" aria-label="Previous image">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="slider-btn" id="nextSlide" aria-label="Next image">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
+                <div class="slider-container">
+                    <div class="slider">
+                        <div class="slider-track" id="sliderTrack">
+                            <!-- Slides will be inserted by JavaScript -->
+                        </div>
                     </div>
-                    <div id="sliderImages"></div>
-                    <div class="slider-dots" id="sliderDots"></div>
+                    <button class="slider-btn prev" onclick="changeSlide(-1)" aria-label="Previous slide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next" onclick="changeSlide(1)" aria-label="Next slide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="slider-dots" id="sliderDots">
+                        <!-- Dots will be inserted by JavaScript -->
+                    </div>
                 </div>
-                <div class="modal-info">
-                    <h3 id="modalTitle"></h3>
-                    <p id="modalDescription"></p>
-                    <a href="#" class="btn btn-primary" id="modalWhatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i> <span data-en="Inquire via WhatsApp" data-es="Consultar por WhatsApp">Inquire via WhatsApp</span>
+                <div class="modal-description">
+                    <h4 data-en="Project Details" data-es="Detalles del Proyecto">Project Details</h4>
+                    <p id="modalDescription">Project description goes here...</p>
+                    <div class="technical-details">
+                        <h5 data-en="Technical Specifications" data-es="Especificaciones Técnicas">Technical Specifications</h5>
+                        <ul id="technicalSpecs">
+                            <!-- Technical specs will be inserted by JavaScript -->
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/61435496047" target="_blank" class="modal-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span data-en="Inquire about this project" data-es="Consultar sobre este proyecto">Inquire about this project</span>
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Reviews Section -->
-    <section class="reviews" id="reviews">
-        <h2 class="section-title" data-en="What Our Customers Say" data-es="Lo Que Dicen Nuestros Clientes">What Our Customers Say</h2>
-        <div class="reviews-slider">
-            <div class="review-slide active">
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80" alt="Customer" class="review-avatar">
-                <p class="review-text" data-en="Amazing quality toys! My children absolutely love their electronic robot. The customer service was exceptional and delivery was fast." 
-                   data-es="¡Juguetes de calidad increíble! Mis hijos absolutamente aman su robot electrónico. El servicio al cliente fue excepcional y la entrega fue rápida.">
-                   Amazing quality toys! My children absolutely love their electronic robot. The customer service was exceptional and delivery was fast.
-                </p>
-                <div class="review-author">Maria Rodriguez</div>
-                <div class="review-company">Happy Parent</div>
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <div class="section-title">
+            <h2 data-en="Client Testimonials" data-es="Testimonios de Clientes">Client Testimonials</h2>
+            <p data-en="What our clients say about our welding services" 
+               data-es="Lo que nuestros clientes dicen sobre nuestros servicios de soldadura">
+                What our clients say about our welding services
+            </p>
+        </div>
+
+        <div class="testimonials-slider">
+            <div class="testimonials-track" id="testimonialsTrack">
+                <!-- Testimonials will be inserted by JavaScript -->
             </div>
-            
-            <div class="review-slide">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" alt="Customer" class="review-avatar">
-                <p class="review-text" data-en="Best toy store in San Cristobal! Great prices and the staff really knows their products. Highly recommended!" 
-                   data-es="¡La mejor tienda de juguetes en San Cristobal! Grandes precios y el personal realmente conoce sus productos. ¡Altamente recomendado!">
-                   Best toy store in San Cristobal! Great prices and the staff really knows their products. Highly recommended!
-                </p>
-                <div class="review-author">Carlos Mendez</div>
-                <div class="review-company">Loyal Customer</div>
-            </div>
-            
-            <div class="review-slide">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80" alt="Customer" class="review-avatar">
-                <p class="review-text" data-en="The educational toys here have really helped my son's development. Great selection and very affordable prices." 
-                   data-es="Los juguetes educativos aquí realmente han ayudado el desarrollo de mi hijo. Gran selección y precios muy accesibles.">
-                   The educational toys here have really helped my son's development. Great selection and very affordable prices.
-                </p>
-                <div class="review-author">Ana Martinez</div>
-                <div class="review-company">Teacher & Parent</div>
-            </div>
-            
-            <div class="review-slide">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="Customer" class="review-avatar">
-                <p class="review-text" data-en="Excellent service for our school event. They provided amazing toys for our children's day celebration. Professional and reliable!" 
-                   data-es="Excelente servicio para nuestro evento escolar. Proporcionaron juguetes increíbles para nuestra celebración del día del niño. ¡Profesionales y confiables!">
-                   Excellent service for our school event. They provided amazing toys for our children's day celebration. Professional and reliable!
-                </p>
-                <div class="review-author">Roberto Silva</div>
-                <div class="review-company">School Director</div>
-            </div>
-            
-            <div class="review-slide">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" alt="Customer" class="review-avatar">
-                <p class="review-text" data-en="I've been buying from Toys Kids for 3 years now. Consistent quality and my kids always get excited when we visit the store!" 
-                   data-es="He estado comprando en Toys Kids por 3 años ahora. Calidad consistente y ¡mis hijos siempre se emocionan cuando visitamos la tienda!">
-                   I've been buying from Toys Kids for 3 years now. Consistent quality and my kids always get excited when we visit the store!
-                </p>
-                <div class="review-author">Luis Hernandez</div>
-                <div class="review-company">Regular Customer</div>
-            </div>
-            
-            <div class="review-dots">
-                <span class="review-dot active" data-index="0"></span>
-                <span class="review-dot" data-index="1"></span>
-                <span class="review-dot" data-index="2"></span>
-                <span class="review-dot" data-index="3"></span>
-                <span class="review-dot" data-index="4"></span>
+            <div class="testimonial-dots" id="testimonialDots">
+                <!-- Dots will be inserted by JavaScript -->
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2 class="section-title" data-en="Contact Us" data-es="Contáctanos">Contact Us</h2>
-        <div class="contact-content">
+    <section class="section" id="contact">
+        <div class="section-title">
+            <h2 data-en="Contact Us" data-es="Contáctenos">Contact Us</h2>
+            <p data-en="Get in touch for a free quote or consultation" 
+               data-es="Contáctenos para una cotización o consulta gratuita">
+                Get in touch for a free quote or consultation
+            </p>
+        </div>
+
+        <div class="contact-container">
             <div class="contact-info">
-                <h3 data-en="Get in Touch" data-es="Ponte en Contacto">Get in Touch</h3>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
+                <h3 data-en="Let's Discuss Your Project" data-es="Hablemos de su Proyecto">Let's Discuss Your Project</h3>
+                <p data-en="Ready to start your welding project? Contact us today for professional service and competitive pricing." 
+                   data-es="¿Listo para comenzar su proyecto de soldadura? Contáctenos hoy para un servicio profesional y precios competitivos.">
+                    Ready to start your welding project? Contact us today for professional service and competitive pricing.
+                </p>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <strong data-en="Address" data-es="Dirección">Address</strong>
+                            <p>Sydney, Australia</p>
+                        </div>
                     </div>
-                    <div>
-                        <h4 data-en="Address" data-es="Dirección">Address</h4>
-                        <p>San Cristobal, Edo. Táchira, Venezuela</p>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <strong data-en="Phone / WhatsApp" data-es="Teléfono / WhatsApp">Phone / WhatsApp</strong>
+                            <a href="https://wa.me/61435496047" target="_blank">+61 435 496 047</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <strong data-en="Email" data-es="Correo Electrónico">Email</strong>
+                            <a href="mailto:gdiazverdi@gmail.com">gdiazverdi@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div>
+                            <strong>Instagram</strong>
+                            <a href="#" target="_blank">@soletradewelding</a>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div>
-                        <h4 data-en="Email" data-es="Correo Electrónico">Email</h4>
-                        <a href="mailto:info@toysplay.com">info@toysplay.com</a>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <div>
-                        <h4 data-en="WhatsApp" data-es="WhatsApp">WhatsApp</h4>
-                        <a href="https://wa.me/1234567890" target="_blank">+1 234 567 890</a>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <div>
-                        <h4>Instagram</h4>
-                        <a href="https://instagram.com/toyskids" target="_blank">@toyskids</a>
-                    </div>
-                </div>
-                
+
                 <div class="social-links">
-                    <a href="https://instagram.com/toyskids" target="_blank" class="instagram" aria-label="Instagram">
+                    <a href="#" class="social-link instagram" aria-label="Instagram" target="_blank">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://facebook.com/toyskids" target="_blank" class="facebook" aria-label="Facebook">
+                    <a href="#" class="social-link facebook" aria-label="Facebook" target="_blank">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://linkedin.com/company/toyskids" target="_blank" class="linkedin" aria-label="LinkedIn">
+                    <a href="#" class="social-link linkedin" aria-label="LinkedIn" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://youtube.com/toyskids" target="_blank" class="youtube" aria-label="YouTube">
+                    <a href="#" class="social-link youtube" aria-label="YouTube" target="_blank">
                         <i class="fab fa-youtube"></i>
                     </a>
-                    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp" aria-label="WhatsApp">
+                    <a href="https://wa.me/61435496047" class="social-link whatsapp" aria-label="WhatsApp" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                     </a>
                 </div>
             </div>
-            
-            <div class="contact-form">
-                <h3 data-en="Send us a Message" data-es="Envíanos un Mensaje">Send us a Message</h3>
-                
-                <div class="alert alert-success" id="formSuccess">
-                    <i class="fas fa-check-circle"></i> <span data-en="Message sent successfully! We'll get back to you soon." data-es="¡Mensaje enviado exitosamente! Te responderemos pronto.">Message sent successfully! We'll get back to you soon.</span>
+
+            <form class="contact-form" id="contactForm" novalidate>
+                <div class="form-group">
+                    <label for="name">
+                        <span data-en="Full Name" data-es="Nombre Completo">Full Name</span>
+                        <span class="required">*</span>
+                    </label>
+                    <input type="text" id="name" name="name" required 
+                           data-en-placeholder="Enter your full name" 
+                           data-es-placeholder="Ingrese su nombre completo"
+                           placeholder="Enter your full name">
+                    <span class="error-message" data-en="Please enter your name" data-es="Por favor ingrese su nombre">Please enter your name</span>
                 </div>
-                
-                <div class="alert alert-error" id="formError">
-                    <i class="fas fa-exclamation-circle"></i> <span data-en="Error sending message. Please try again." data-es="Error al enviar el mensaje. Por favor intenta de nuevo.">Error sending message. Please try again.</span>
+
+                <div class="form-group">
+                    <label for="email">
+                        <span data-en="Email Address" data-es="Correo Electrónico">Email Address</span>
+                        <span class="required">*</span>
+                    </label>
+                    <input type="email" id="email" name="email" required 
+                           data-en-placeholder="Enter your email" 
+                           data-es-placeholder="Ingrese su correo"
+                           placeholder="Enter your email">
+                    <span class="error-message" data-en="Please enter a valid email" data-es="Por favor ingrese un correo válido">Please enter a valid email</span>
                 </div>
-                
-                <form id="contactForm" novalidate>
-                    <div class="form-group">
-                        <label for="name">
-                            <span data-en="Full Name" data-es="Nombre Completo">Full Name</span>
-                            <span class="required">*</span>
-                        </label>
-                        <input type="text" id="name" name="name" required 
-                               data-en-placeholder="Enter your full name" 
-                               data-es-placeholder="Ingresa tu nombre completo"
-                               placeholder="Enter your full name">
-                        <span class="error-message" data-en="Please enter your name" data-es="Por favor ingresa tu nombre">Please enter your name</span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">
-                            <span data-en="Email" data-es="Correo Electrónico">Email</span>
-                            <span class="required">*</span>
-                        </label>
-                        <input type="email" id="email" name="email" required 
-                               data-en-placeholder="Enter your email" 
-                               data-es-placeholder="Ingresa tu correo"
-                               placeholder="Enter your email">
-                        <span class="error-message" data-en="Please enter a valid email" data-es="Por favor ingresa un correo válido">Please enter a valid email</span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">
-                            <span data-en="Phone" data-es="Teléfono">Phone</span>
-                            <span class="required">*</span>
-                        </label>
-                        <input type="tel" id="phone" name="phone" required 
-                               data-en-placeholder="Enter your phone number" 
-                               data-es-placeholder="Ingresa tu teléfono"
-                               placeholder="Enter your phone number">
-                        <span class="error-message" data-en="Please enter your phone number" data-es="Por favor ingresa tu teléfono">Please enter your phone number</span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="requestType">
-                            <span data-en="Request Type" data-es="Tipo de Solicitud">Request Type</span>
-                            <span class="required">*</span>
-                        </label>
-                        <select id="requestType" name="requestType" required>
-                            <option value="" data-en="Select an option" data-es="Selecciona una opción">Select an option</option>
-                            <option value="question" data-en="Question" data-es="Pregunta">Question</option>
-                            <option value="toys" data-en="Toys" data-es="Juguetes">Toys</option>
-                            <option value="promotions" data-en="Promotions" data-es="Promociones">Promotions</option>
-                            <option value="manufacturing" data-en="Manufacturing" data-es="Fabricación">Manufacturing</option>
-                            <option value="quotes" data-en="Quotes" data-es="Cotizaciones">Quotes</option>
-                            <option value="others" data-en="Others" data-es="Otros">Others</option>
-                        </select>
-                        <span class="error-message" data-en="Please select a request type" data-es="Por favor selecciona un tipo de solicitud">Please select a request type</span>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="comment">
-                            <span data-en="Comment" data-es="Comentario">Comment</span>
-                            <span class="required">*</span>
-                        </label>
-                        <textarea id="comment" name="comment" required 
-                                  data-en-placeholder="Enter your message" 
-                                  data-es-placeholder="Ingresa tu mensaje"
-                                  placeholder="Enter your message"></textarea>
-                        <span class="error-message" data-en="Please enter your comment" data-es="Por favor ingresa tu comentario">Please enter your comment</span>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-paper-plane"></i> <span data-en="Send Message" data-es="Enviar Mensaje">Send Message</span>
-                    </button>
-                </form>
-            </div>
+
+                <div class="form-group">
+                    <label for="phone">
+                        <span data-en="Phone Number" data-es="Número de Teléfono">Phone Number</span>
+                        <span class="required">*</span>
+                    </label>
+                    <input type="tel" id="phone" name="phone" required 
+                           data-en-placeholder="Enter your phone number" 
+                           data-es-placeholder="Ingrese su número de teléfono"
+                           placeholder="Enter your phone number">
+                    <span class="error-message" data-en="Please enter your phone number" data-es="Por favor ingrese su número de teléfono">Please enter your phone number</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="requestType">
+                        <span data-en="Type of Request" data-es="Tipo de Solicitud">Type of Request</span>
+                        <span class="required">*</span>
+                    </label>
+                    <select id="requestType" name="requestType" required>
+                        <option value="" data-en="Select a service" data-es="Seleccione un servicio">Select a service</option>
+                        <option value="question" data-en="General Question" data-es="Pregunta General">General Question</option>
+                        <option value="mobile" data-en="Mobile Welding" data-es="Soldadura Móvil">Mobile Welding</option>
+                        <option value="security" data-en="Security" data-es="Seguridad">Security</option>
+                        <option value="fabrication" data-en="Fabrication" data-es="Fabricación">Fabrication</option>
+                        <option value="quote" data-en="Quote Request" data-es="Solicitud de Cotización">Quote Request</option>
+                        <option value="other" data-en="Other" data-es="Otros">Other</option>
+                    </select>
+                    <span class="error-message" data-en="Please select a service type" data-es="Por favor seleccione un tipo de servicio">Please select a service type</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">
+                        <span data-en="Message" data-es="Mensaje">Message</span>
+                        <span class="required">*</span>
+                    </label>
+                    <textarea id="message" name="message" required 
+                              data-en-placeholder="Describe your project or question..." 
+                              data-es-placeholder="Describa su proyecto o pregunta..."
+                              placeholder="Describe your project or question..."></textarea>
+                    <span class="error-message" data-en="Please enter your message" data-es="Por favor ingrese su mensaje">Please enter your message</span>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span data-en="Send Message" data-es="Enviar Mensaje">Send Message</span>
+                </button>
+
+                <div class="form-success" id="formSuccess">
+                    <i class="fas fa-check-circle"></i>
+                    <p data-en="Thank you! Your message has been sent successfully. We'll contact you soon." 
+                       data-es="¡Gracias! Su mensaje ha sido enviado exitosamente. Nos pondremos en contacto pronto.">
+                        Thank you! Your message has been sent successfully. We'll contact you soon.
+                    </p>
+                </div>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4 data-en="About Toys Kids" data-es="Sobre Toys Kids">About Toys Kids</h4>
-                <p data-en="Your trusted source for quality toys and educational games. Bringing joy to children since 2010." 
-                   data-es="Tu fuente confiable de juguetes de calidad y juegos educativos. Llevando alegría a los niños desde 2010.">
-                   Your trusted source for quality toys and educational games. Bringing joy to children since 2010.
-                </p>
-            </div>
-            
-            <div class="footer-section">
-                <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
-                <ul>
-                    <li><a href="#home" data-en="Home" data-es="Inicio">Home</a></li>
-                    <li><a href="#about" data-en="About Us" data-es="Nosotros">About Us</a></li>
-                    <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
-                    <li><a href="#products" data-en="Products" data-es="Productos">Products</a></li>
-                    <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4 data-en="Contact Info" data-es="Información de Contacto">Contact Info</h4>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> San Cristobal, Táchira, Venezuela</li>
-                    <li><i class="fas fa-envelope"></i> info@toysplay.com</li>
-                    <li><i class="fab fa-whatsapp"></i> +1 234 567 890</li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4 data-en="Follow Us" data-es="Síguenos">Follow Us</h4>
-                <div class="social-links">
-                    <a href="https://instagram.com/toyskids" target="_blank" class="instagram" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://facebook.com/toyskids" target="_blank" class="facebook" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://linkedin.com/company/toyskids" target="_blank" class="linkedin" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://youtube.com/toyskids" target="_blank" class="youtube" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">Sole<span style="color:var(--color-orange)">Trade</span></span>
+                    <p data-en="Professional welding services in Sydney. Quality workmanship, competitive prices, and customer satisfaction guaranteed." 
+                       data-es="Servicios profesionales de soldadura en Sydney. Mano de obra de calidad, precios competitivos y satisfacción del cliente garantizada.">
+                        Professional welding services in Sydney. Quality workmanship, competitive prices, and customer satisfaction guaranteed.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link instagram" aria-label="Instagram" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link facebook" aria-label="Facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin" aria-label="LinkedIn" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link youtube" aria-label="YouTube" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://wa.me/61435496047" class="social-link whatsapp" aria-label="WhatsApp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 data-en="Quick Links" data-es="Enlaces Rápidos">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home" data-en="Home" data-es="Inicio">Home</a></li>
+                        <li><a href="#about" data-en="About Us" data-es="Nosotros">About Us</a></li>
+                        <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+                        <li><a href="#projects" data-en="Projects" data-es="Proyectos">Projects</a></li>
+                        <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 data-en="Services" data-es="Servicios">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services" data-en="Mobile Welding" data-es="Soldadura Móvil">Mobile Welding</a></li>
+                        <li><a href="#services" data-en="Farms & Ranches" data-es="Fincas y Granjas">Farms & Ranches</a></li>
+                        <li><a href="#services" data-en="Industrial" data-es="Industrial">Industrial</a></li>
+                        <li><a href="#services" data-en="Cutting & Grooving" data-es="Corte y Ranurado">Cutting & Grooving</a></li>
+                        <li><a href="#services" data-en="Security" data-es="Seguridad">Security</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 data-en="Contact Info" data-es="Información de Contacto">Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right:0.5rem;color:var(--color-orange)"></i> Sydney, Australia</li>
+                        <li><i class="fas fa-phone" style="margin-right:0.5rem;color:var(--color-orange)"></i> +61 435 496 047</li>
+                        <li><i class="fas fa-envelope" style="margin-right:0.5rem;color:var(--color-orange)"></i> gdiazverdi@gmail.com</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 Toys Play. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span></p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 SoleTrade Welding. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span></p>
+            </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
-        // Product Data
-        const products = [
+        /**
+         * PROJECTS DATA - 15 Projects with welding-related images
+         */
+        const projectsData = [
             {
                 id: 1,
-                title: { en: "Interactive Robot Toy", es: "Robot Interactivo" },
+                title: { en: "Mobile Welding - Residential Gate", es: "Soldadura Móvil - Portón Residencial" },
+                category: { en: "Residential Welding", es: "Soldadura Residencial" },
+                shortDesc: { en: "Custom security gate installation at home", es: "Instalación de portón de seguridad personalizado en domicilio" },
                 description: { 
-                    en: "Advanced electronic robot with voice recognition and programmable movements. Perfect for kids aged 6+.",
-                    es: "Robot electrónico avanzado con reconocimiento de voz y movimientos programables. Perfecto para niños de 6+ años."
+                    en: "Complete mobile welding service for residential property. Fabricated and installed custom steel security gate with automated opening system. Work completed on-site at client's home in Sydney suburbs.",
+                    es: "Servicio completo de soldadura móvil para propiedad residencial. Fabricación e instalación de portón de seguridad de acero personalizado con sistema de apertura automatizado. Trabajo completado en el lugar en el hogar del cliente en los suburbios de Sydney."
                 },
-                images: [
-                    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
-                    "https://images.unsplash.com/photo-1535378437327-b71494669e9d?w=600&q=80",
-                    "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&q=80",
-                    "https://images.unsplash.com/photo-1563291074-2bf8677ac0e5?w=600&q=80",
-                    "https://images.unsplash.com/photo-1589254065878-42c9da997008?w=600&q=80"
+                technicalSpecs: [
+                    { en: "Material: Steel powder-coated", es: "Material: Acero con recubrimiento en polvo" },
+                    { en: "Dimensions: 3m x 2m", es: "Dimensiones: 3m x 2m" },
+                    { en: "Welding Type: MIG/TIG", es: "Tipo de Soldadura: MIG/TIG" },
+                    { en: "Finish: Weather-resistant coating", es: "Acabado: Recubrimiento resistente a la intemperie" },
+                    { en: "Installation Time: 2 days", es: "Tiempo de Instalación: 2 días" }
                 ],
-                whatsappMessage: {
-                    en: "Hi! I'm interested in the Interactive Robot Toy",
-                    es: "¡Hola! Estoy interesado en el Robot Interactivo"
-                }
+                images: [
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Initial assessment and measurement", es: "Evaluación y medición inicial" } },
+                    { src: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80", caption: { en: "On-site welding process", es: "Proceso de soldadura en el lugar" } },
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "Gate frame assembly", es: "Ensamblaje del marco del portón" } },
+                    { src: "https://images.unsplash.com/photo-1621905290180-5c4aa88591aa?w=800&q=80", caption: { en: "Automation system installation", es: "Instalación del sistema de automatización" } },
+                    { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", caption: { en: "Completed installation", es: "Instalación completada" } }
+                ]
             },
             {
                 id: 2,
-                title: { en: "Educational Building Blocks", es: "Bloques de Construcción Educativos" },
+                title: { en: "Factory Production Line Repair", es: "Reparación de Línea de Producción" },
+                category: { en: "Industrial Welding", es: "Soldadura Industrial" },
+                shortDesc: { en: "Emergency repair of manufacturing equipment", es: "Reparación de emergencia de equipo de manufactura" },
                 description: { 
-                    en: "STEM learning blocks with 300+ pieces. Develops creativity and problem-solving skills.",
-                    es: "Bloques de aprendizaje STEM con 300+ piezas. Desarrolla creatividad y habilidades de resolución de problemas."
+                    en: "Contract welding service for manufacturing facility. Repaired critical production line equipment to minimize downtime. Work included structural reinforcement and component replacement.",
+                    es: "Servicio de soldadura por contrato para instalación de manufactura. Reparación de equipo crítico de línea de producción para minimizar tiempo de inactividad. El trabajo incluyó refuerzo estructural y reemplazo de componentes."
                 },
-                images: [
-                    "https://images.unsplash.com/photo-1587654780291-39c940483713?w=600&q=80",
-                    "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=600&q=80",
-                    "https://images.unsplash.com/photo-1560159752-d6e1832f94cb?w=600&q=80",
-                    "https://images.unsplash.com/photo-1585366119958-2a1b13a55a51?w=600&q=80",
-                    "https://images.unsplash.com/photo-1596908181055-e10301d47d1b?w=600&q=80"
+                technicalSpecs: [
+                    { en: "Material: Stainless Steel 316", es: "Material: Acero Inoxidable 316" },
+                    { en: "Welding Process: TIG", es: "Proceso de Soldadura: TIG" },
+                    { en: "Thickness: 8mm", es: "Espesor: 8mm" },
+                    { en: "Certification: AS1554 compliant", es: "Certificación: Cumple AS1554" },
+                    { en: "Completion: 24 hours", es: "Completado: 24 horas" }
                 ],
-                whatsappMessage: {
-                    en: "Hi! I'm interested in the Educational Building Blocks",
-                    es: "¡Hola! Estoy interesado en los Bloques de Construcción Educativos"
-                }
+                images: [
+                    { src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80", caption: { en: "Damaged equipment assessment", es: "Evaluación de equipo dañado" } },
+                    { src: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80", caption: { en: "Precision TIG welding", es: "Soldadura TIG de precisión" } },
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Structural reinforcement", es: "Refuerzo estructural" } },
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "Quality inspection", es: "Inspección de calidad" } },
+                    { src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80", caption: { en: "Operational equipment", es: "Equipo operativo" } }
+                ]
             },
             {
                 id: 3,
-                title: { en: "Remote Control Car", es: "Carro a Control Remoto" },
+                title: { en: "Farm Equipment Repair", es: "Reparación de Equipo de Granja" },
+                category: { en: "Agricultural Welding", es: "Soldadura Agrícola" },
+                shortDesc: { en: "Mobile welding for tractor and fencing", es: "Soldadura móvil para tractor y cercas" },
                 description: { 
-                    en: "High-speed RC car with rechargeable battery. Durable design for indoor and outdoor play.",
-                    es: "Carro RC de alta velocidad con batería recargable. Diseño duradero para juegos interiores y exteriores."
+                    en: "On-site mobile welding service for agricultural property. Repaired tractor attachments, reinforced fencing, and fabricated custom gate. Emergency service during harvest season.",
+                    es: "Servicio de soldadura móvil en el lugar para propiedad agrícola. Reparación de accesorios de tractor, refuerzo de cercas y fabricación de portón personalizado. Servicio de emergencia durante la temporada de cosecha."
                 },
-                images: [
-                    "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=600&q=80",
-                    "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=600&q=80",
-                    "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=80",
-                    "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80",
-                    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+                technicalSpecs: [
+                    { en: "Equipment: Tractor attachments", es: "Equipo: Accesorios de tractor" },
+                    { en: "Material: High-tensile steel", es: "Material: Acero de alta resistencia" },
+                    { en: "Welding: Stick/MIG", es: "Soldadura: Electrodo/MIG" },
+                    { en: "Fencing: 200m repaired", es: "Cerca: 200m reparados" },
+                    { en: "Response Time: 2 hours", es: "Tiempo de Respuesta: 2 horas" }
                 ],
-                whatsappMessage: {
-                    en: "Hi! I'm interested in the Remote Control Car",
-                    es: "¡Hola! Estoy interesado en el Carro a Control Remoto"
-                }
+                images: [
+                    { src: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=800&q=80", caption: { en: "Tractor attachment repair", es: "Reparación de accesorio de tractor" } },
+                    { src: "https://images.unsplash.com/photo-1530267981375-f0de93fe1e84?w=800&q=80", caption: { en: "Mobile welding unit on-site", es: "Unidad de soldadura móvil en el lugar" } },
+                    { src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80", caption: { en: "Fencing reinforcement", es: "Refuerzo de cerca" } },
+                    { src: "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?w=800&q=80", caption: { en: "Custom gate fabrication", es: "Fabricación de portón personalizado" } },
+                    { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80", caption: { en: "Completed farm repairs", es: "Reparaciones de granja completadas" } }
+                ]
             },
             {
                 id: 4,
-                title: { en: "Musical Learning Tablet", es: "Tableta Musical de Aprendizaje" },
+                title: { en: "Commercial Building Staircase", es: "Escalera de Edificio Comercial" },
+                category: { en: "Structural Steel", es: "Acero Estructural" },
+                shortDesc: { en: "Custom steel staircase with glass panels", es: "Escalera de acero personalizada con paneles de vidrio" },
                 description: { 
-                    en: "Interactive tablet with music, sounds, and educational games. Bilingual English/Spanish.",
-                    es: "Tableta interactiva con música, sonidos y juegos educativos. Bilingüe Inglés/Español."
+                    en: "Architectural welding for commercial office building in Sydney CBD. Custom steel staircase with glass panel railings. Full compliance with building codes and safety standards.",
+                    es: "Soldadura arquitectónica para edificio de oficinas comercial en Sydney CBD. Escalera de acero personalizada con barandillas de paneles de vidrio. Total cumplimiento de códigos de construcción y estándares de seguridad."
                 },
-                images: [
-                    "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80",
-                    "https://images.unsplash.com/photo-1588508065123-287b28e013da?w=600&q=80",
-                    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80",
-                    "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80",
-                    "https://images.unsplash.com/photo-1527011046414-4781f1f94f8c?w=600&q=80"
+                technicalSpecs: [
+                    { en: "Structure: Steel I-beams", es: "Estructura: Vigas I de acero" },
+                    { en: "Railings: Tempered glass panels", es: "Barandillas: Paneles de vidrio templado" },
+                    { en: "Welding: Certified structural", es: "Soldadura: Estructural certificada" },
+                    { en: "Load Capacity: 500kg/m²", es: "Capacidad de Carga: 500kg/m²" },
+                    { en: "Timeline: 3 weeks", es: "Cronograma: 3 semanas" }
                 ],
-                whatsappMessage: {
-                    en: "Hi! I'm interested in the Musical Learning Tablet",
-                    es: "¡Hola! Estoy interesado en la Tableta Musical de Aprendizaje"
-                }
+                images: [
+                    { src: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&q=80", caption: { en: "Steel framework installation", es: "Instalación de estructura de acero" } },
+                    { src: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80", caption: { en: "Precision welding work", es: "Trabajo de soldadura de precisión" } },
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Glass panel mounting", es: "Montaje de panel de vidrio" } },
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "Finishing touches", es: "Toques finales" } },
+                    { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", caption: { en: "Completed staircase", es: "Escalera completada" } }
+                ]
             },
             {
                 id: 5,
-                title: { en: "Water Play Set", es: "Set de Juegos de Agua" },
+                title: { en: "Park Infrastructure Welding", es: "Soldadura de Infraestructura de Parque" },
+                category: { en: "Public Works", es: "Obras Públicas" },
+                shortDesc: { en: "Recreational equipment and structures", es: "Equipamiento recreativo y estructuras" },
                 description: { 
-                    en: "Complete water toys set for pool and beach. Includes floating animals and water guns.",
-                    es: "Set completo de juguetes de agua para piscina y playa. Incluye animales flotantes y pistolas de agua."
+                    en: "Welding services for public park in industrial zone. Repaired and fabricated playground equipment, picnic shelters, and security fencing. Weather-resistant finishes applied.",
+                    es: "Servicios de soldadura para parque público en zona industrial. Reparación y fabricación de equipos de juegos, refugios de picnic y cercas de seguridad. Acabados resistentes a la intemperie aplicados."
                 },
-                images: [
-                    "https://images.unsplash.com/photo-1562059390-a761a084768e?w=600&q=80",
-                    "https://images.unsplash.com/photo-1576426863848-c21f5fc67255?w=600&q=80",
-                    "https://images.unsplash.com/photo-1534068590799-09895a701e3e?w=600&q=80",
-                    "https://images.unsplash.com/photo-1575462176248-2c8165569472?w=600&q=80",
-                    "https://images.unsplash.com/photo-1576462176248-c21f5fc67255?w=600&q=80"
+                technicalSpecs: [
+                    { en: "Material: Galvanized steel", es: "Material: Acero galvanizado" },
+                    { en: "Finish: Powder coating", es: "Acabado: Recubrimiento en polvo" },
+                    { en: "Safety: AS4685 compliant", es: "Seguridad: Cumple AS4685" },
+                    { en: "Structures: 5 installations", es: "Estructuras: 5 instalaciones" },
+                    { en: "Duration: 2 weeks", es: "Duración: 2 semanas" }
                 ],
-                whatsappMessage: {
-                    en: "Hi! I'm interested in the Water Play Set",
-                    es: "¡Hola! Estoy interesado en el Set de Juegos de Agua"
-                }
+                images: [
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "Playground structure welding", es: "Soldadura de estructura de juegos" } },
+                    { src: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80", caption: { en: "Shelter frame assembly", es: "Ensamblaje de marco de refugio" } },
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Security fence installation", es: "Instalación de cerca de seguridad" } },
+                    { src: "https://images.unsplash.com/photo-1621905290180-5c4aa88591aa?w=800&q=80", caption: { en: "Powder coating application", es: "Aplicación de recubrimiento en polvo" } },
+                    { src: "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?w=800&q=80", caption: { en: "Completed park facilities", es: "Instalaciones de parque completadas" } }
+                ]
             },
             {
                 id: 6,
-                title: { en: "Science Experiment Kit", es: "Kit de Experimentos Científicos" },
+                title: { en: "Restaurant Kitchen Equipment", es: "Equipo de Cocina de Restaurante" },
+                category: { en: "Commercial Fabrication", es: "Fabricación Comercial" },
+                shortDesc: { en: "Stainless steel kitchen fabrication", es: "Fabricación de cocina de acero inoxidable" },
                 description: { 
-                    en: "Hands-on science kit with 50+ experiments. Perfect for young scientists aged 8-12.",
-                    es: "Kit de ciencia práctico con 50+ experimentos. Perfecto para jóvenes científicos de 8-12 años."
+                    en: "Complete commercial kitchen setup for new restaurant. Stainless steel benches, shelving, exhaust hood supports, and custom storage solutions. Food safety compliant.",
+                    es: "Configuración completa de cocina comercial para nuevo restaurante. Bancos de acero inoxidable, estanterías, soportes de campana extractora y soluciones de almacenamiento personalizadas. Cumple con seguridad alimentaria."
                 },
-                images: [
-                    "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&q=80",
-                    "https://images.unsplash.com/photo-1576085898323-218337e3e43c?w=600&q=80",
-                    "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=600&q=80",
-                    "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80",
-                    "https://images.unsplash.com/photo-1579165466741-7f35a4755657?w=600&q=80"
+                technicalSpecs: [
+                    { en: "Material: Stainless Steel 304", es: "Material: Acero Inoxidable 304" },
+                    { en: "Finish: Food-grade polish", es: "Acabado: Pulido grado alimenticio" },
+                    { en: "Welds: Sanitary finish", es: "Soldaduras: Acabado sanitario" },
+                    { en: "Compliance: HACCP certified", es: "Cumplimiento: Certificado HACCP" },
+                    { en: "Installation: 2 weeks", es: "Instalación: 2 semanas" }
                 ],
-                whatsappMessage: {
-                    en: "Hi! I'm interested in the Science Experiment Kit",
-                    es: "¡Hola! Estoy interesado en el Kit de Experimentos Científicos"
-                }
+                images: [
+                    { src: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80", caption: { en: "Stainless steel bench fabrication", es: "Fabricación de banco de acero inoxidable" } },
+                    { src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80", caption: { en: "Precision welding", es: "Soldadura de precisión" } },
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Shelving unit installation", es: "Instalación de unidad de estantería" } },
+                    { src: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80", caption: { en: "Exhaust hood supports", es: "Soportes de campana extractora" } },
+                    { src: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=800&q=80", caption: { en: "Completed kitchen", es: "Cocina completada" } }
+                ]
+            },
+            {
+                id: 7,
+                title: { en: "Residential Security Fence", es: "Cerca de Seguridad Residencial" },
+                category: { en: "Residential Security", es: "Seguridad Residencial" },
+                shortDesc: { en: "Ornamental security fencing", es: "Cercado de seguridad ornamental" },
+                description: { 
+                    en: "Decorative yet secure fencing for residential property. Combined aesthetic appeal with robust security features including anti-climb design and automated gate.",
+                    es: "Cercado decorativo pero seguro para propiedad residencial. Combinó atractivo estético con características de seguridad robustas incluyendo diseño antiescalada y portón automatizado."
+                },
+                technicalSpecs: [
+                    { en: "Material: Powder-coated steel", es: "Material: Acero con recubrimiento en polvo" },
+                    { en: "Height: 2.4m", es: "Altura: 2.4m" },
+                    { en: "Design: Anti-climb ornamental", es: "Diseño: Ornamental antiescalada" },
+                    { en: "Gate: Automated sliding", es: "Portón: Corredizo automatizado" },
+                    { en: "Length: 45m", es: "Longitud: 45m" }
+                ],
+                images: [
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Post installation", es: "Instalación de postes" } },
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "Panel welding", es: "Soldadura de paneles" } },
+                    { src: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80", caption: { en: "Ornamental details", es: "Detalles ornamentales" } },
+                    { src: "https://images.unsplash.com/photo-1621905290180-5c4aa88591aa?w=800&q=80", caption: { en: "Gate mechanism", es: "Mecanismo de portón" } },
+                    { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80", caption: { en: "Completed fence", es: "Cerca completada" } }
+                ]
+            },
+            {
+                id: 8,
+                title: { en: "Warehouse Racking System", es: "Sistema de Estanterías de Almacén" },
+                category: { en: "Industrial Storage", es: "Almacenamiento Industrial" },
+                shortDesc: { en: "Heavy-duty pallet racking", es: "Estanterías para pallets pesados" },
+                description: { 
+                    en: "Industrial-grade pallet racking system for distribution warehouse. Load capacity 2000kg per level with seismic bracing and safety locks.",
+                    es: "Sistema de estanterías para pallets de grado industrial para almacén de distribución. Capacidad de carga 2000kg por nivel con refuerzo sísmico y cerraduras de seguridad."
+                },
+                technicalSpecs: [
+                    { en: "Load Capacity: 2000kg/level", es: "Capacidad de Carga: 2000kg/nivel" },
+                    { en: "Material: Structural steel", es: "Material: Acero estructural" },
+                    { en: "Safety: Seismic bracing", es: "Seguridad: Refuerzo sísmico" },
+                    { en: "Levels: 5-tier system", es: "Niveles: Sistema de 5 niveles" },
+                    { en: "Installation: 4 weeks", es: "Instalación: 4 semanas" }
+                ],
+                images: [
+                    { src: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80", caption: { en: "Framework assembly", es: "Ensamblaje de estructura" } },
+                    { src: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80", caption: { en: "Structural welding", es: "Soldadura estructural" } },
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Beam installation", es: "Instalación de vigas" } },
+                    { src: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80", caption: { en: "Safety lock installation", es: "Instalación de cerradura de seguridad" } },
+                    { src: "https://images.unsplash.com/photo-1587293852726-70cdb59c20fd?w=800&q=80", caption: { en: "Completed racking system", es: "Sistema de estanterías completado" } }
+                ]
+            },
+            {
+                id: 9,
+                title: { en: "Remote Welding Consultation", es: "Consultoría de Soldadura Remota" },
+                category: { en: "Consulting Services", es: "Servicios de Consultoría" },
+                shortDesc: { en: "Remote project management Sydney", es: "Gestión de proyectos remota Sydney" },
+                description: { 
+                    en: "Remote welding consultation and quality control for industrial project in Sydney. Virtual inspections, technical guidance, and project management services.",
+                    es: "Consultoría de soldadura remota y control de calidad para proyecto industrial en Sydney. Inspecciones virtuales, orientación técnica y servicios de gestión de proyectos."
+                },
+                technicalSpecs: [
+                    { en: "Service: Remote consultation", es: "Servicio: Consultoría remota" },
+                    { en: "Inspection: Virtual QC", es: "Inspección: Control de calidad virtual" },
+                    { en: "Documentation: Digital reports", es: "Documentación: Informes digitales" },
+                    { en: "Standards: AS/NZS 1554", es: "Estándares: AS/NZS 1554" },
+                    { en: "Duration: Ongoing", es: "Duración: Continua" }
+                ],
+                images: [
+                    { src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80", caption: { en: "Virtual inspection setup", es: "Configuración de inspección virtual" } },
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Remote quality control", es: "Control de calidad remoto" } },
+                    { src: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80", caption: { en: "Technical documentation", es: "Documentación técnica" } },
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "Project management", es: "Gestión de proyectos" } },
+                    { src: "https://images.unsplash.com/photo-1581092160659-2429d80f07c1?w=800&q=80", caption: { en: "Final report delivery", es: "Entrega de informe final" } }
+                ]
+            },
+            {
+                id: 10,
+                title: { en: "Industrial Zone Maintenance", es: "Mantenimiento de Zona Industrial" },
+                category: { en: "Contract Services", es: "Servicios por Contrato" },
+                shortDesc: { en: "Ongoing welding maintenance contract", es: "Contrato de mantenimiento de soldadura continuo" },
+                description: { 
+                    en: "Long-term contract welding services for industrial zone. Scheduled maintenance, emergency repairs, and equipment upgrades for multiple facilities.",
+                    es: "Servicios de soldadura por contrato a largo plazo para zona industrial. Mantenimiento programado, reparaciones de emergencia y actualizaciones de equipo para múltiples instalaciones."
+                },
+                technicalSpecs: [
+                    { en: "Contract: 12 months", es: "Contrato: 12 meses" },
+                    { en: "Facilities: 5 locations", es: "Instalaciones: 5 ubicaciones" },
+                    { en: "Service: 24/7 availability", es: "Servicio: Disponibilidad 24/7" },
+                    { en: "Response: 4 hours max", es: "Respuesta: 4 horas máx" },
+                    { en: "Team: 3 certified welders", es: "Equipo: 3 soldadores certificados" }
+                ],
+                images: [
+                    { src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80", caption: { en: "Scheduled maintenance", es: "Mantenimiento programado" } },
+                    { src: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80", caption: { en: "Equipment inspection", es: "Inspección de equipo" } },
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Emergency repair", es: "Reparación de emergencia" } },
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "Equipment upgrade", es: "Actualización de equipo" } },
+                    { src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80", caption: { en: "Completed maintenance", es: "Mantenimiento completado" } }
+                ]
+            },
+            {
+                id: 11,
+                title: { en: "Custom Metal Fabrication", es: "Fabricación de Metal Personalizada" },
+                category: { en: "Custom Work", es: "Trabajo Personalizado" },
+                shortDesc: { en: "Bespoke metalwork solutions", es: "Soluciones de metalistería a medida" },
+                description: { 
+                    en: "Custom metal fabrication for unique architectural project. Bespoke steelwork including decorative elements, structural components, and artistic installations.",
+                    es: "Fabricación de metal personalizada para proyecto arquitectónico único. Trabajos de acero a medida incluyendo elementos decorativos, componentes estructurales e instalaciones artísticas."
+                },
+                technicalSpecs: [
+                    { en: "Design: Custom architectural", es: "Diseño: Arquitectónico personalizado" },
+                    { en: "Material: Mixed metals", es: "Material: Metales mixtos" },
+                    { en: "Finish: Custom patina", es: "Acabado: Pátina personalizada" },
+                    { en: "Technique: TIG/MIG/Stick", es: "Técnica: TIG/MIG/Electrodo" },
+                    { en: "Timeline: 6 weeks", es: "Cronograma: 6 semanas" }
+                ],
+                images: [
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Design consultation", es: "Consultoría de diseño" } },
+                    { src: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80", caption: { en: "Custom fabrication", es: "Fabricación personalizada" } },
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Decorative elements", es: "Elementos decorativos" } },
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "Artistic installation", es: "Instalación artística" } },
+                    { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", caption: { en: "Completed project", es: "Proyecto completado" } }
+                ]
+            },
+            {
+                id: 12,
+                title: { en: "Cutting & Grooving Service", es: "Servicio de Corte y Ranurado" },
+                category: { en: "Metal Cutting", es: "Corte de Metal" },
+                shortDesc: { en: "Precision metal cutting", es: "Corte de metal de precisión" },
+                description: { 
+                    en: "Advanced cutting and grooving services for industrial clients. Precision cuts in various metals using plasma, oxy-fuel, and waterjet cutting technologies.",
+                    es: "Servicios avanzados de corte y ranurado para clientes industriales. Cortes de precisión en varios metales usando tecnologías de corte por plasma, oxicombustible y chorro de agua."
+                },
+                technicalSpecs: [
+                    { en: "Technology: Plasma/Waterjet", es: "Tecnología: Plasma/Chorro de agua" },
+                    { en: "Thickness: Up to 100mm", es: "Espesor: Hasta 100mm" },
+                    { en: "Tolerance: ±0.5mm", es: "Tolerancia: ±0.5mm" },
+                    { en: "Materials: Steel/Aluminum", es: "Materiales: Acero/Aluminio" },
+                    { en: "CNC: Computer controlled", es: "CNC: Controlado por computadora" }
+                ],
+                images: [
+                    { src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80", caption: { en: "Plasma cutting", es: "Corte por plasma" } },
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Precision grooving", es: "Ranurado de precisión" } },
+                    { src: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80", caption: { en: "CNC operation", es: "Operación CNC" } },
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "Quality inspection", es: "Inspección de calidad" } },
+                    { src: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80", caption: { en: "Finished components", es: "Componentes terminados" } }
+                ]
+            },
+            {
+                id: 13,
+                title: { en: "Bridge Repair Welding", es: "Soldadura de Reparación de Puente" },
+                category: { en: "Infrastructure", es: "Infraestructura" },
+                shortDesc: { en: "Structural bridge maintenance", es: "Mantenimiento estructural de puente" },
+                description: { 
+                    en: "Critical structural welding for bridge maintenance in Sydney. Repaired load-bearing components and reinforced structural elements to extend bridge lifespan.",
+                    es: "Soldadura estructural crítica para mantenimiento de puente en Sydney. Reparación de componentes de carga y refuerzo de elementos estructurales para extender la vida útil del puente."
+                },
+                technicalSpecs: [
+                    { en: "Structure: Steel bridge", es: "Estructura: Puente de acero" },
+                    { en: "Welding: Structural certified", es: "Soldadura: Estructural certificada" },
+                    { en: "Standard: AS5100 compliant", es: "Estándar: Cumple AS5100" },
+                    { en: "Inspection: NDT tested", es: "Inspección: Prueba NDT" },
+                    { en: "Duration: 3 weeks", es: "Duración: 3 semanas" }
+                ],
+                images: [
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "Structural assessment", es: "Evaluación estructural" } },
+                    { src: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80", caption: { en: "Load-bearing repair", es: "Reparación de carga" } },
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Reinforcement welding", es: "Soldadura de refuerzo" } },
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "NDT inspection", es: "Inspección NDT" } },
+                    { src: "https://images.unsplash.com/photo-1545324412-cc5f0d52afb7?w=800&q=80", caption: { en: "Completed bridge", es: "Puente completado" } }
+                ]
+            },
+            {
+                id: 14,
+                title: { en: "Apartment Balcony Railings", es: "Barandillas de Balcón de Apartamento" },
+                category: { en: "Residential", es: "Residencial" },
+                shortDesc: { en: "Modern balcony railing installation", es: "Instalación moderna de barandilla de balcón" },
+                description: { 
+                    en: "Contemporary balcony railing system for residential apartment complex. Glass and steel combination with modern aesthetic and full code compliance.",
+                    es: "Sistema de barandilla de balcón contemporáneo para complejo de apartamentos residenciales. Combinación de vidrio y acero con estética moderna y total cumplimiento de código."
+                },
+                technicalSpecs: [
+                    { en: "Material: Stainless steel & glass", es: "Material: Acero inoxidable y vidrio" },
+                    { en: "Glass: 12mm tempered", es: "Vidrio: 12mm templado" },
+                    { en: "Height: 1.2m compliant", es: "Altura: 1.2m conforme" },
+                    { en: "Finish: Brushed stainless", es: "Acabado: Acero inoxidable cepillado" },
+                    { en: "Units: 24 balconies", es: "Unidades: 24 balcones" }
+                ],
+                images: [
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Frame installation", es: "Instalación de marco" } },
+                    { src: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80", caption: { en: "Steel welding", es: "Soldadura de acero" } },
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "Glass panel mounting", es: "Montaje de panel de vidrio" } },
+                    { src: "https://images.unsplash.com/photo-1621905290180-5c4aa88591aa?w=800&q=80", caption: { en: "Finishing work", es: "Trabajo de acabado" } },
+                    { src: "https://images.unsplash.com/photo-1600585154529-94e1c9414b9b?w=800&q=80", caption: { en: "Completed balconies", es: "Balcones completados" } }
+                ]
+            },
+            {
+                id: 15,
+                title: { en: "Mining Equipment Repair", es: "Reparación de Equipo Minero" },
+                category: { en: "Heavy Industry", es: "Industria Pesada" },
+                shortDesc: { en: "Heavy equipment welding", es: "Soldadura de equipo pesado" },
+                description: { 
+                    en: "Heavy-duty welding for mining equipment in remote industrial zone. Repaired excavator buckets, truck beds, and conveyor systems with wear-resistant materials.",
+                    es: "Soldadura pesada para equipo minero en zona industrial remota. Reparación de cucharones de excavadora, cajas de camión y sistemas transportadores con materiales resistentes al desgaste."
+                },
+                technicalSpecs: [
+                    { en: "Equipment: Mining machinery", es: "Equipo: Maquinaria minera" },
+                    { en: "Material: Hardox steel", es: "Material: Acero Hardox" },
+                    { en: "Welding: Hardfacing", es: "Soldadura: Recubrimiento duro" },
+                    { en: "Thickness: Up to 50mm", es: "Espesor: Hasta 50mm" },
+                    { en: "Location: Remote site", es: "Ubicación: Sitio remoto" }
+                ],
+                images: [
+                    { src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80", caption: { en: "Excavator bucket repair", es: "Reparación de cucharón de excavadora" } },
+                    { src: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80", caption: { en: "Hardfacing application", es: "Aplicación de recubrimiento duro" } },
+                    { src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80", caption: { en: "Truck bed repair", es: "Reparación de caja de camión" } },
+                    { src: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&q=80", caption: { en: "Conveyor system", es: "Sistema transportador" } },
+                    { src: "https://images.unsplash.com/photo-1587293852726-70cdb59c20fd?w=800&q=80", caption: { en: "Completed repairs", es: "Reparaciones completadas" } }
+                ]
             }
         ];
 
-        // State Management
+        /**
+         * TESTIMONIALS DATA
+         */
+        const testimonialsData = [
+            {
+                name: "Michael Thompson",
+                company: "Thompson Construction",
+                text: { 
+                    en: "SoleTrade Welding exceeded our expectations on our industrial project. Their attention to detail and professionalism was outstanding. The mobile welding service saved us significant time and money.",
+                    es: "SoleTrade Welding superó nuestras expectativas en nuestro proyecto industrial. Su atención al detalle y profesionalismo fue excepcional. El servicio de soldadura móvil nos ahorró tiempo y dinero significativos."
+                },
+                image: "https://i.pravatar.cc/150?img=11"
+            },
+            {
+                name: "Sarah Martinez",
+                company: "Green Valley Farms",
+                text: { 
+                    en: "Fast, reliable, and excellent quality work. They repaired our farm equipment during harvest season when we couldn't afford downtime. Highly recommend their mobile welding services!",
+                    es: "Trabajo rápido, confiable y de excelente calidad. Repararon nuestro equipo de granja durante la temporada de cosecha cuando no podíamos permitirnos tiempo de inactividad. ¡Altamente recomiendo sus servicios de soldadura móvil!"
+                },
+                image: "https://i.pravatar.cc/150?img=5"
+            },
+            {
+                name: "David Chen",
+                company: "Sydney Manufacturing Co.",
+                text: { 
+                    en: "We've been using SoleTrade for all our factory welding needs for 3 years. Consistent quality, competitive pricing, and always on time. A true professional operation.",
+                    es: "Hemos estado usando SoleTrade para todas nuestras necesidades de soldadura de fábrica durante 3 años. Calidad consistente, precios competitivos y siempre a tiempo. Una operación verdaderamente profesional."
+                },
+                image: "https://i.pravatar.cc/150?img=3"
+            },
+            {
+                name: "Emma Wilson",
+                company: "Wilson Residence",
+                text: { 
+                    en: "Beautiful work on our security fence and gate. They transformed our property's appearance while significantly improving security. The team was respectful and cleaned up perfectly.",
+                    es: "Hermoso trabajo en nuestra cerca y portón de seguridad. Transformaron la apariencia de nuestra propiedad mientras mejoraban significativamente la seguridad. El equipo fue respetuoso y limpió perfectamente."
+                },
+                image: "https://i.pravatar.cc/150?img=9"
+            },
+            {
+                name: "James Rodriguez",
+                company: "Metro Restaurants Group",
+                text: { 
+                    en: "Professional kitchen fabrication done to perfection. They understood our requirements and delivered exactly what we needed. All work met health and safety standards. Excellent!",
+                    es: "Fabricación de cocina profesional hecha a la perfección. Entendieron nuestros requisitos y entregaron exactamente lo que necesitábamos. Todo el trabajo cumplió con los estándares de salud y seguridad. ¡Excelente!"
+                },
+                image: "https://i.pravatar.cc/150?img=13"
+            }
+        ];
+
+        /**
+         * GLOBAL VARIABLES
+         */
         let currentLang = 'en';
-        let currentProduct = null;
+        let currentProject = null;
         let currentSlide = 0;
-        let reviewsInterval = null;
+        let testimonialInterval;
+        let testimonialIndex = 0;
+        let currentPage = 1;
+        const projectsPerPage = 5;
 
-        // DOM Elements
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mainMenu = document.getElementById('mainMenu');
-        const languageToggle = document.getElementById('languageToggle');
-        const currentLangSpan = document.getElementById('currentLang');
-        const productsGrid = document.getElementById('productsGrid');
-        const productModal = document.getElementById('productModal');
-        const modalClose = document.getElementById('modalClose');
-        const contactForm = document.getElementById('contactForm');
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProducts();
-            setupEventListeners();
-            startReviewsSlider();
-            validateImages();
+        /**
+         * INITIALIZATION
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProjects();
+            renderPagination();
+            renderTestimonials();
+            initEventListeners();
+            initCounterAnimation();
+            startTestimonialSlider();
+            
+            // Set English as default language
+            switchLanguage('en');
         });
 
-        // Setup Event Listeners
-        function setupEventListeners() {
-            // Mobile Menu
-            mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        /**
+         * RENDER PROJECTS WITH PAGINATION
+         */
+        function renderProjects() {
+            const grid = document.getElementById('projectsGrid');
+            const start = (currentPage - 1) * projectsPerPage;
+            const end = start + projectsPerPage;
+            const projectsToShow = projectsData.slice(start, end);
             
-            // Language Toggle
-            languageToggle.addEventListener('click', toggleLanguage);
-            languageToggle.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') toggleLanguage();
-            });
-            
-            // Modal
-            modalClose.addEventListener('click', closeModal);
-            document.getElementById('prevSlide').addEventListener('click', prevSlide);
-            document.getElementById('nextSlide').addEventListener('click', nextSlide);
-            productModal.addEventListener('click', (e) => {
-                if (e.target === productModal) closeModal();
-            });
-            
-            // Form
-            contactForm.addEventListener('submit', handleFormSubmit);
-            
-            // Smooth scroll for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        // Close mobile menu if open
-                        mainMenu.classList.remove('active');
-                    }
-                });
-            });
-            
-            // Keyboard navigation for modal
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && productModal.classList.contains('active')) {
-                    closeModal();
-                }
-                if (e.key === 'ArrowLeft' && productModal.classList.contains('active')) {
-                    prevSlide();
-                }
-                if (e.key === 'ArrowRight' && productModal.classList.contains('active')) {
-                    nextSlide();
-                }
-            });
-        }
-
-        // Toggle Mobile Menu
-        function toggleMobileMenu() {
-            mainMenu.classList.toggle('active');
-            mobileMenuToggle.setAttribute('aria-expanded', mainMenu.classList.contains('active'));
-        }
-
-        // Toggle Language
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'es' : 'en';
-            currentLangSpan.textContent = currentLang.toUpperCase();
-            updateLanguage();
-        }
-
-        // Update Language
-        function updateLanguage() {
-            // Update all elements with data-en and data-es attributes
-            document.querySelectorAll('[data-en][data-es]').forEach(element => {
-                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    const placeholderAttr = currentLang === 'en' ? 'data-en-placeholder' : 'data-es-placeholder';
-                    if (element.hasAttribute(placeholderAttr)) {
-                        element.placeholder = element.getAttribute(placeholderAttr);
-                    }
-                } else {
-                    element.textContent = element.getAttribute(`data-${currentLang}`);
-                }
-            });
-            
-            // Update product descriptions if modal is open
-            if (currentProduct) {
-                document.getElementById('modalTitle').textContent = currentProduct.title[currentLang];
-                document.getElementById('modalDescription').textContent = currentProduct.description[currentLang];
-                document.getElementById('modalWhatsapp').href = getWhatsAppLink(currentProduct.whatsappMessage[currentLang]);
-            }
-        }
-
-        // Render Products
-        function renderProducts() {
-            productsGrid.innerHTML = products.map(product => `
-                <div class="product-card">
-                    <div class="product-image" onclick="openModal(${product.id})">
-                        <img src="${product.images[0]}" alt="${product.title[currentLang]}" loading="lazy">
-                        <div class="product-overlay">
-                            <button class="view-details" data-en="View Details" data-es="Ver Detalles">View Details</button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>${product.title[currentLang]}</h3>
-                        <p>${product.description[currentLang]}</p>
-                        <div class="product-actions">
-                            <div class="share-buttons">
-                                <button class="share-btn facebook" onclick="shareOnFacebook(${product.id})" aria-label="Share on Facebook">
-                                    <i class="fab fa-facebook-f"></i>
-                                </button>
-                                <button class="share-btn twitter" onclick="shareOnTwitter(${product.id})" aria-label="Share on Twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </button>
-                                <button class="share-btn whatsapp" onclick="shareOnWhatsApp(${product.id})" aria-label="Share on WhatsApp">
-                                    <i class="fab fa-whatsapp"></i>
-                                </button>
+            grid.innerHTML = projectsToShow.map(project => `
+                <div class="project-card" onclick="openModal(${project.id})">
+                    <div class="project-image">
+                        <img src="${project.images[0].src}" alt="${project.title[currentLang]}" loading="lazy">
+                        <div class="project-menu">
+                            <div class="menu-dots" onclick="toggleShareMenu(event, ${project.id})">
+                                <i class="fas fa-ellipsis-v"></i>
                             </div>
-                            <a href="${getWhatsAppLink(product.whatsappMessage[currentLang])}" target="_blank" class="whatsapp-link">
+                            <div class="share-dropdown" id="share-${project.id}">
+                                <div class="share-option instagram" onclick="shareToInstagram(${project.id}, event)">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>${currentLang === 'en' ? 'Instagram' : 'Instagram'}</span>
+                                </div>
+                                <div class="share-option x" onclick="shareToX(${project.id}, event)">
+                                    <i class="fab fa-x-twitter"></i>
+                                    <span>X</span>
+                                </div>
+                                <div class="share-option facebook" onclick="shareToFacebook(${project.id}, event)">
+                                    <i class="fab fa-facebook-f"></i>
+                                    <span>${currentLang === 'en' ? 'Facebook' : 'Facebook'}</span>
+                                </div>
+                                <div class="share-option whatsapp" onclick="shareToWhatsApp(${project.id}, event)">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span>${currentLang === 'en' ? 'WhatsApp' : 'WhatsApp'}</span>
+                                </div>
+                                <div class="share-option link" onclick="copyLink(${project.id}, event)">
+                                    <i class="fas fa-link"></i>
+                                    <span>${currentLang === 'en' ? 'Copy Link' : 'Copiar Enlace'}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-overlay">
+                            <h3>${project.title[currentLang]}</h3>
+                            <p>${project.shortDesc[currentLang]}</p>
+                            <a href="https://wa.me/61435496047?text=${encodeURIComponent('Interested in: ' + project.title[currentLang])}" 
+                               class="project-whatsapp" target="_blank" onclick="event.stopPropagation()" 
+                               aria-label="WhatsApp">
                                 <i class="fab fa-whatsapp"></i>
-                                <span data-en="Contact" data-es="Contactar">Contact</span>
                             </a>
                         </div>
                     </div>
+                    <div class="project-info">
+                        <h3>${project.title[currentLang]}</h3>
+                        <p>${project.shortDesc[currentLang]}</p>
+                    </div>
                 </div>
             `).join('');
         }
 
-        // Open Modal
-        function openModal(productId) {
-            currentProduct = products.find(p => p.id === productId);
-            if (!currentProduct) return;
+        /**
+         * RENDER PAGINATION
+         */
+        function renderPagination() {
+            const totalPages = Math.ceil(projectsData.length / projectsPerPage);
+            const pagination = document.getElementById('pagination');
             
-            currentSlide = 0;
+            let html = '';
+            
+            // Previous button
+            html += `<button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+                <i class="fas fa-chevron-left"></i> ${currentLang === 'en' ? 'Prev' : 'Ant'}
+            </button>`;
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                html += `<button onclick="changePage(${i})" class="${i === currentPage ? 'active' : ''}">${i}</button>`;
+            }
+            
+            // Next button
+            html += `<button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+                ${currentLang === 'en' ? 'Next' : 'Sig'} <i class="fas fa-chevron-right"></i>
+            </button>`;
+            
+            pagination.innerHTML = html;
+        }
+
+        /**
+         * CHANGE PAGE
+         */
+        function changePage(page) {
+            const totalPages = Math.ceil(projectsData.length / projectsPerPage);
+            if (page < 1 || page > totalPages) return;
+            
+            currentPage = page;
+            renderProjects();
+            renderPagination();
+            
+            // Scroll to projects section
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        /**
+         * TOGGLE SHARE MENU
+         */
+        function toggleShareMenu(event, projectId) {
+            event.stopPropagation();
+            
+            // Close all other menus
+            document.querySelectorAll('.share-dropdown').forEach(menu => {
+                if (menu.id !== `share-${projectId}`) {
+                    menu.classList.remove('active');
+                }
+            });
+            
+            // Toggle current menu
+            const menu = document.getElementById(`share-${projectId}`);
+            menu.classList.toggle('active');
+        }
+
+        /**
+         * SHARE FUNCTIONS
+         */
+        function shareToInstagram(projectId, event) {
+            event.stopPropagation();
+            const project = projectsData.find(p => p.id === projectId);
+            const url = `https://www.instagram.com/`;
+            window.open(url, '_blank');
+            closeAllShareMenus();
+        }
+
+        function shareToX(projectId, event) {
+            event.stopPropagation();
+            const project = projectsData.find(p => p.id === projectId);
+            const text = encodeURIComponent(`Check out this project: ${project.title[currentLang]}`);
+            const url = `https://twitter.com/intent/tweet?text=${text}`;
+            window.open(url, '_blank');
+            closeAllShareMenus();
+        }
+
+        function shareToFacebook(projectId, event) {
+            event.stopPropagation();
+            const project = projectsData.find(p => p.id === projectId);
+            const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+            window.open(url, '_blank');
+            closeAllShareMenus();
+        }
+
+        function shareToWhatsApp(projectId, event) {
+            event.stopPropagation();
+            const project = projectsData.find(p => p.id === projectId);
+            const text = encodeURIComponent(`Interested in: ${project.title[currentLang]} - ${project.shortDesc[currentLang]}`);
+            const url = `https://wa.me/61435496047?text=${text}`;
+            window.open(url, '_blank');
+            closeAllShareMenus();
+        }
+
+        function copyLink(projectId, event) {
+            event.stopPropagation();
+            const project = projectsData.find(p => p.id === projectId);
+            const url = `${window.location.origin}${window.location.pathname}#project-${projectId}`;
+            
+            navigator.clipboard.writeText(url).then(() => {
+                alert(currentLang === 'en' ? 'Link copied to clipboard!' : '¡Enlace copiado al portapapeles!');
+            }).catch(() => {
+                // Fallback
+                const textArea = document.createElement('textarea');
+                textArea.value = url;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert(currentLang === 'en' ? 'Link copied to clipboard!' : '¡Enlace copiado al portapapeles!');
+            });
+            
+            closeAllShareMenus();
+        }
+
+        function closeAllShareMenus() {
+            document.querySelectorAll('.share-dropdown').forEach(menu => {
+                menu.classList.remove('active');
+            });
+        }
+
+        /**
+         * OPEN MODAL
+         */
+        function openModal(projectId) {
+            currentProject = projectsData.find(p => p.id === projectId);
+            if (!currentProject) return;
+            
+            document.getElementById('modalTitle').textContent = currentProject.title[currentLang];
+            document.getElementById('modalSubtitle').textContent = currentProject.category[currentLang];
+            document.getElementById('modalDescription').textContent = currentProject.description[currentLang];
+            
+            // Render technical specs
+            const specsList = document.getElementById('technicalSpecs');
+            specsList.innerHTML = currentProject.technicalSpecs.map(spec => 
+                `<li>${spec[currentLang]}</li>`
+            ).join('');
+            
             renderSlider();
-            updateModalContent();
-            productModal.classList.add('active');
+            document.getElementById('projectModal').classList.add('active');
             document.body.style.overflow = 'hidden';
+            currentSlide = 0;
         }
 
-        // Close Modal
+        /**
+         * CLOSE MODAL
+         */
         function closeModal() {
-            productModal.classList.remove('active');
+            document.getElementById('projectModal').classList.remove('active');
             document.body.style.overflow = '';
-            currentProduct = null;
         }
 
-        // Render Slider
+        /**
+         * RENDER SLIDER
+         */
         function renderSlider() {
-            const sliderImages = document.getElementById('sliderImages');
-            const sliderDots = document.getElementById('sliderDots');
+            const track = document.getElementById('sliderTrack');
+            const dotsContainer = document.getElementById('sliderDots');
             
-            sliderImages.innerHTML = currentProduct.images.map((img, index) => `
-                <div class="modal-slide ${index === 0 ? 'active' : ''}">
-                    <img src="${img}" alt="${currentProduct.title[currentLang]} - Image ${index + 1}" loading="lazy">
+            track.innerHTML = currentProject.images.map((img, index) => `
+                <div class="slide">
+                    <img src="${img.src}" alt="${img.caption[currentLang]}" loading="lazy">
+                    <div class="slide-caption">
+                        <h4>${img.caption[currentLang]}</h4>
+                    </div>
                 </div>
             `).join('');
             
-            sliderDots.innerHTML = currentProduct.images.map((_, index) => `
-                <span class="dot ${index === 0 ? 'active' : ''}" data-index="${index}" onclick="goToSlide(${index})"></span>
+            dotsContainer.innerHTML = currentProject.images.map((_, i) => `
+                <button class="dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})" aria-label="Slide ${i + 1}"></button>
             `).join('');
-        }
-
-        // Update Modal Content
-        function updateModalContent() {
-            document.getElementById('modalTitle').textContent = currentProduct.title[currentLang];
-            document.getElementById('modalDescription').textContent = currentProduct.description[currentLang];
-            document.getElementById('modalWhatsapp').href = getWhatsAppLink(currentProduct.whatsappMessage[currentLang]);
-        }
-
-        // Slider Controls
-        function updateSlider() {
-            const slides = document.querySelectorAll('.modal-slide');
-            const dots = document.querySelectorAll('.dot');
             
-            slides.forEach((slide, index) => {
-                slide.classList.toggle('active', index === currentSlide);
-            });
-            
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % currentProduct.images.length;
             updateSlider();
         }
 
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + currentProduct.images.length) % currentProduct.images.length;
+        /**
+         * CHANGE SLIDE
+         */
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = currentProject.images.length - 1;
+            if (currentSlide >= currentProject.images.length) currentSlide = 0;
             updateSlider();
         }
 
+        /**
+         * GO TO SLIDE
+         */
         function goToSlide(index) {
             currentSlide = index;
             updateSlider();
         }
 
-        // Share Functions
-        function shareOnFacebook(productId) {
-            const product = products.find(p => p.id === productId);
-            const url = encodeURIComponent(window.location.href + '#product-' + productId);
-            const text = encodeURIComponent(product.title[currentLang]);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
-        }
-
-        function shareOnTwitter(productId) {
-            const product = products.find(p => p.id === productId);
-            const url = encodeURIComponent(window.location.href + '#product-' + productId);
-            const text = encodeURIComponent(product.title[currentLang]);
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
-        }
-
-        function shareOnWhatsApp(productId) {
-            const product = products.find(p => p.id === productId);
-            const text = encodeURIComponent(`Check out ${product.title[currentLang]} at Toys Kids!`);
-            window.open(`https://wa.me/1234567890?text=${text}`, '_blank');
-        }
-
-        // WhatsApp Link
-        function getWhatsAppLink(message) {
-            const fullMessage = encodeURIComponent(message + ' - Toys Kids');
-            return `https://wa.me/1234567890?text=${fullMessage}`;
-        }
-
-        // Reviews Slider
-        function startReviewsSlider() {
-            const slides = document.querySelectorAll('.review-slide');
-            const dots = document.querySelectorAll('.review-dot');
-            let currentIndex = 0;
+        /**
+         * UPDATE SLIDER
+         */
+        function updateSlider() {
+            const track = document.getElementById('sliderTrack');
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
             
-            function showSlide(index) {
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
+            document.querySelectorAll('#sliderDots .dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        /**
+         * RENDER TESTIMONIALS
+         */
+        function renderTestimonials() {
+            const track = document.getElementById('testimonialsTrack');
+            const dotsContainer = document.getElementById('testimonialDots');
+            
+            track.innerHTML = testimonialsData.map(t => `
+                <div class="testimonial">
+                    <div class="testimonial-avatar">
+                        <img src="${t.image}" alt="${t.name}" loading="lazy">
+                    </div>
+                    <p class="testimonial-text">"${t.text[currentLang]}"</p>
+                    <div class="testimonial-name">${t.name}</div>
+                    <div class="testimonial-company">${t.company}</div>
+                </div>
+            `).join('');
+            
+            dotsContainer.innerHTML = testimonialsData.map((_, i) => `
+                <button class="dot ${i === 0 ? 'active' : ''}" onclick="goToTestimonial(${i})" aria-label="Testimonial ${i + 1}"></button>
+            `).join('');
+        }
+
+        /**
+         * GO TO TESTIMONIAL
+         */
+        function goToTestimonial(index) {
+            testimonialIndex = index;
+            updateTestimonials();
+            resetTestimonialTimer();
+        }
+
+        /**
+         * UPDATE TESTIMONIALS
+         */
+        function updateTestimonials() {
+            const track = document.getElementById('testimonialsTrack');
+            track.style.transform = `translateX(-${testimonialIndex * 100}%)`;
+            
+            document.querySelectorAll('#testimonialDots .dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === testimonialIndex);
+            });
+        }
+
+        /**
+         * START TESTIMONIAL SLIDER
+         */
+        function startTestimonialSlider() {
+            testimonialInterval = setInterval(() => {
+                testimonialIndex = (testimonialIndex + 1) % testimonialsData.length;
+                updateTestimonials();
+            }, 5000);
+        }
+
+        /**
+         * RESET TESTIMONIAL TIMER
+         */
+        function resetTestimonialTimer() {
+            clearInterval(testimonialInterval);
+            startTestimonialSlider();
+        }
+
+        /**
+         * SWITCH LANGUAGE
+         */
+        function switchLanguage(lang) {
+            if (currentLang === lang) return;
+            currentLang = lang;
+            
+            // Update language buttons
+            document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+            document.getElementById('btnEs').classList.toggle('active', lang === 'es');
+            
+            // Update all elements with data-en and data-es attributes
+            document.querySelectorAll('[data-en][data-es]').forEach(el => {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    const placeholderAttr = lang === 'en' ? 'data-en-placeholder' : 'data-es-placeholder';
+                    if (el.hasAttribute(placeholderAttr)) {
+                        el.placeholder = el.getAttribute(placeholderAttr);
+                    }
+                } else if (el.tagName !== 'BUTTON' || !el.classList.contains('lang-btn')) {
+                    el.textContent = el.getAttribute(`data-${lang}`);
+                }
+            });
+            
+            // Re-render dynamic content
+            renderProjects();
+            renderPagination();
+            renderTestimonials();
+            
+            // Update modal if open
+            if (currentProject && document.getElementById('projectModal').classList.contains('active')) {
+                document.getElementById('modalTitle').textContent = currentProject.title[lang];
+                document.getElementById('modalSubtitle').textContent = currentProject.category[lang];
+                document.getElementById('modalDescription').textContent = currentProject.description[lang];
                 
-                slides[index].classList.add('active');
-                dots[index].classList.add('active');
-                currentIndex = index;
+                // Update technical specs
+                const specsList = document.getElementById('technicalSpecs');
+                specsList.innerHTML = currentProject.technicalSpecs.map(spec => 
+                    `<li>${spec[lang]}</li>`
+                ).join('');
+                
+                renderSlider();
             }
             
-            // Auto-rotate every 5 seconds
-            reviewsInterval = setInterval(() => {
-                const nextIndex = (currentIndex + 1) % slides.length;
-                showSlide(nextIndex);
-            }, 5000);
+            // Update HTML lang attribute
+            document.documentElement.lang = lang === 'en' ? 'en' : 'es';
+        }
+
+        /**
+         * INIT EVENT LISTENERS
+         */
+        function initEventListeners() {
+            // Mobile menu toggle
+            const mobileToggle = document.getElementById('mobileMenuToggle');
+            const navMenu = document.getElementById('navMenu');
             
-            // Manual navigation
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    clearInterval(reviewsInterval);
-                    showSlide(index);
-                    startReviewsSlider(); // Restart auto-rotate
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close mobile menu on link click
+            navMenu.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
                 });
             });
-        }
-
-        // Form Validation and Submission
-        function handleFormSubmit(e) {
-            e.preventDefault();
             
-            const formData = {
-                name: document.getElementById('name').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                requestType: document.getElementById('requestType').value,
-                comment: document.getElementById('comment').value.trim()
-            };
-            
-            // Reset errors
-            document.querySelectorAll('.error-message').forEach(msg => msg.classList.remove('show'));
-            document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(field => {
-                field.classList.remove('error');
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             });
             
-            // Validate
+            // Form validation and submission
+            const form = document.getElementById('contactForm');
+            form.addEventListener('submit', handleFormSubmit);
+            
+            // Real-time validation
+            form.querySelectorAll('input, select, textarea').forEach(field => {
+                field.addEventListener('blur', () => validateField(field));
+                field.addEventListener('input', () => {
+                    if (field.classList.contains('error')) {
+                        validateField(field);
+                    }
+                });
+            });
+            
+            // Modal close on outside click
+            document.getElementById('projectModal').addEventListener('click', (e) => {
+                if (e.target.id === 'projectModal') {
+                    closeModal();
+                }
+            });
+            
+            // Close share menus when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.project-menu')) {
+                    closeAllShareMenus();
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeModal();
+                    closeAllShareMenus();
+                }
+                if (currentProject && document.getElementById('projectModal').classList.contains('active')) {
+                    if (e.key === 'ArrowLeft') changeSlide(-1);
+                    if (e.key === 'ArrowRight') changeSlide(1);
+                }
+            });
+        }
+
+        /**
+         * VALIDATE FIELD
+         */
+        function validateField(field) {
+            const value = field.value.trim();
+            const errorSpan = field.parentElement.querySelector('.error-message');
             let isValid = true;
             
-            if (!formData.name) {
-                showError('name', 'Please enter your name');
+            if (field.hasAttribute('required') && !value) {
                 isValid = false;
+            } else if (field.type === 'email' && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                isValid = emailRegex.test(value);
+            } else if (field.type === 'tel' && value) {
+                const phoneRegex = /^[\d\s\+\-\(\)]{10,}$/;
+                isValid = phoneRegex.test(value);
             }
             
-            if (!formData.email || !isValidEmail(formData.email)) {
-                showError('email', 'Please enter a valid email');
-                isValid = false;
+            if (!isValid) {
+                field.classList.add('error');
+                if (errorSpan) errorSpan.classList.add('show');
+            } else {
+                field.classList.remove('error');
+                if (errorSpan) errorSpan.classList.remove('show');
             }
             
-            if (!formData.phone) {
-                showError('phone', 'Please enter your phone number');
-                isValid = false;
+            return isValid;
+        }
+
+        /**
+         * HANDLE FORM SUBMIT
+         */
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const fields = form.querySelectorAll('input, select, textarea');
+            let isValid = true;
+            
+            fields.forEach(field => {
+                if (!validateField(field)) {
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) {
+                const firstError = form.querySelector('.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+                return;
             }
             
-            if (!formData.requestType) {
-                showError('requestType', 'Please select a request type');
-                isValid = false;
-            }
-            
-            if (!formData.comment) {
-                showError('comment', 'Please enter your comment');
-                isValid = false;
-            }
-            
-            if (!isValid) return;
-            
-            // Simulate form submission
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            submitBtn.classList.add('loading');
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="loading"></span>';
             submitBtn.disabled = true;
             
-            // Create email content
-            const emailContent = `
-                Name: ${formData.name}
-                Email: ${formData.email}
-                Phone: ${formData.phone}
-                Request Type: ${formData.requestType}
-                Comment: ${formData.comment}
-            `;
-            
-            // Simulate API call
-            setTimeout(() => {
-                // In a real scenario, you would send this to a backend
-                console.log('Form submitted:', emailContent);
+            try {
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
                 
-                // Show success message
+                console.log('Form data:', data);
+                
                 document.getElementById('formSuccess').classList.add('show');
+                form.reset();
+                
                 setTimeout(() => {
                     document.getElementById('formSuccess').classList.remove('show');
                 }, 5000);
                 
-                // Reset form
-                contactForm.reset();
-                submitBtn.classList.remove('loading');
+            } catch (error) {
+                console.error('Error:', error);
+                alert(currentLang === 'en' ? 
+                    'Error sending message. Please try again.' : 
+                    'Error al enviar el mensaje. Por favor intente de nuevo.');
+            } finally {
+                submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            }, 1500);
+            }
         }
 
-        function showError(fieldId, message) {
-            const field = document.getElementById(fieldId);
-            const errorElement = field.parentElement.querySelector('.error-message');
+        /**
+         * COUNTER ANIMATION
+         */
+        function initCounterAnimation() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
             
-            field.classList.add('error');
-            errorElement.textContent = currentLang === 'en' ? 
-                errorElement.getAttribute('data-en') : 
-                errorElement.getAttribute('data-es');
-            errorElement.classList.add('show');
-        }
-
-        function isValidEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-
-        // Validate Images
-        function validateImages() {
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.addEventListener('error', function() {
-                    console.error('Image failed to load:', this.src);
-                    this.src = 'https://via.placeholder.com/600x400?text=Toys+Kids';
-                });
-            });
-        }
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(() => animateCounter(counter), 20);
+                } else {
+                    counter.innerText = target + '+';
                 }
-            });
-        }, observerOptions);
-
-        // Observe sections
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-
-        // Performance: Lazy load images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries) => {
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.removeAttribute('data-src');
-                            imageObserver.unobserve(img);
-                        }
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
                     }
                 });
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-        // Service Worker registration (for PWA capabilities)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                // Uncomment to register service worker
-                // navigator.serviceWorker.register('/sw.js');
-            });
-        }
-
-        // Cleanup on page unload
-        window.addEventListener('beforeunload', () => {
-            if (reviewsInterval) {
-                clearInterval(reviewsInterval);
-            }
-        });
-
-        // Prevent form resubmission on refresh
-        if (window.history.replaceState) {
-            window.history.replaceState(null, null, window.location.href);
+            }, { threshold: 0.5 });
+            
+            counters.forEach(counter => observer.observe(counter));
         }
     </script>
 </body>
